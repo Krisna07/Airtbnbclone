@@ -1,14 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BiSearch } from "react-icons/bi";
-import Calender from "./Calender";
-import { addDays } from "date-fns";
-import {
-  RiAddBoxFill,
-  RiAddCircleFill,
-  RiAddFill,
-  RiCloseFill,
-  RiSubtractFill,
-} from "react-icons/ri";
+import React, { useState } from "react";
+
 import Locationstab from "./Locationstab";
 import Checkin from "./Checkin";
 import { Checkout } from "./Checkout";
@@ -46,10 +37,6 @@ const ExpandableFilters = () => {
     ? date[0].startDate.toDateString()
     : "Choose date";
   endDate = date[0].endDate ? date[0].endDate.toDateString() : "Choose date";
-
-  // console.log(startDate);
-
-  //defining the guest items
 
   return (
     <div className="expandable-container">

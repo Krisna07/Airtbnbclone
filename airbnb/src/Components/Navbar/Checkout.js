@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 
 export const Checkout = ({
@@ -10,11 +10,15 @@ export const Checkout = ({
   setDate,
   endDate,
 }) => {
+  const [showItems, setShow] = useState();
   return (
     <div
       className="opt checkout"
       onMouseOver={hoverItem}
-      onClick={() => setActiveSelect("checkout")}
+      onClick={() => {
+        setActiveSelect("checkout");
+        setShow(!showItems);
+      }}
       onMouseLeave={leavehover}
       style={{
         backgroundColor: `${activeSelect === "checkout" ? "white" : ""}`,

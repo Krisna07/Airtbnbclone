@@ -1,5 +1,5 @@
 import { setDate } from "date-fns";
-import React from "react";
+import React, { useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import Calender from "./Calender";
 
@@ -12,10 +12,14 @@ const Checkin = ({
   setDate,
   startDate,
 }) => {
+  const [showItems, setShow] = useState();
   return (
     <div
       className="opt checkin"
-      onClick={() => setActiveSelect("checkin")}
+      onClick={() => {
+        setActiveSelect("checkin");
+        setShow(!showItems);
+      }}
       onMouseOver={hoverItem}
       onMouseLeave={leavehover}
       style={{
@@ -40,7 +44,8 @@ const Checkin = ({
         className="loactionOpts"
         style={{
           display: `${
-            activeSelect === "checkin" || activeSelect === "checkout"
+            (activeSelect === "checkin" && showItems) ||
+            (activeSelect === "checkout" && showItems)
               ? "flex"
               : "none"
           }`,

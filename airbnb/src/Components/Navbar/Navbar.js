@@ -6,16 +6,17 @@ import { FaUserCircle } from "react-icons/fa";
 
 import { BiGlobe, BiSearch } from "react-icons/bi";
 import ExpandableFilters from "./ExpandableFilters";
+import Features from "./Features";
 
 const Navbar = () => {
   const [actions, setActions] = useState(false);
   const [filters, setFilters] = useState();
-  // window.moused(() => {
-  //   setFilters((filters = false));
-  // });
+  const hideExpandable = () => {
+    setFilters(filters);
+  };
 
   return (
-    <div className="nav-container">
+    <div className="nav-container" onScroll={hideExpandable}>
       <div className="nav-items">
         <div className="logo-box">
           <SiAirbnb className="logo-icon" /> airbnb
@@ -67,6 +68,9 @@ const Navbar = () => {
             <li>Help</li>
           </div>
         </div>
+      </div>
+      <div className="features-box">
+        <Features />
       </div>
     </div>
   );

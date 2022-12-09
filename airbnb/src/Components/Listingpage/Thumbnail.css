@@ -1,0 +1,11 @@
+.thumbnailsbody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.imageconatiner {
+  width: 200px;
+  height: 200px;
+  background: rgb(138, 135, 135);
+  border-radius: 20px;
+}
