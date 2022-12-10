@@ -6,112 +6,77 @@ import { RiAddFill, RiSubtractFill } from "react-icons/ri";
 // import Increasingnumber from "./Increasingnumber";
 
 const Guestopt = ({ hoverItem, setActiveSelect, leavehover, activeSelect }) => {
-  const [value, setValue] = useState({
-    adult: 0,
-    children: 0,
-    infants: 0,
-    pets: 0,
-  });
-  // const handleChange = (e) => {
-  //   setValue({
-  //     ...value,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  const guests = [
+  // Declare an array of guests with their details
+  const [guests, setGuests] = useState([
     {
       type: "Adult",
       des: "Age 13 or above",
-      value: value.adult,
+      value: 0,
     },
     {
       type: "Children",
       des: "Age 2-12",
-      value: value.children,
+      value: 0,
     },
     {
       type: "Infants",
       des: "Under 2",
-      value: value.infants,
+      value: 0,
     },
     {
       type: "Pets",
       des: "Bringing a service animail?",
-      value: value.pets,
+      value: 0,
     },
-  ];
-  //   const totalvalue =
-  //     guests[1].value + guests[2].value + guests[3].value + guests[4];
+  ]);
 
-  //   console.log(totalvalue);
-  // console.log(guests[1].value);
+  // Declare a state variable to store the total value
+  const [total, setTotal] = useState(0);
 
-  // const allValues = document.querySelectorAll(".thisValue");
+  // Declare a state variable to control whether the list of guests is visible
+  const [showItems, setShow] = useState(false);
 
-  // // setValue({
-  // //   ...value,
-  // //   adult: allValues[0].innerHTML,
-  // // });
-  // console.log(value);
-  const handlechange = (e) => {
-    console.log(e);
+  // Declare a function to handle changes to the value of a guest
+  const handleChange = (index, change) => {
+    // Create a new array of guests with the updated value
+    const updatedGuests = [...guests];
+    updatedGuests[index].value += change;
+
+    // Set the new array of guests as the value of the guests state variable
+    setGuests(updatedGuests);
+
+    // Calculate the new total value and update the state variable
+    const newTotal = updatedGuests.reduce(
+      (total, guest) => total + guest.value,
+      0
+    );
+    setTotal(newTotal);
   };
-  const [showItems, setShow] = useState();
+
   return (
-    <div
-      className="opt guest"
-      onMouseOver={hoverItem}
-      onClick={() => {
-        setActiveSelect("guest");
-        setShow(!showItems);
-      }}
-      onMouseLeave={leavehover}
-      style={{
-        backgroundColor: `${activeSelect === "guest" ? "white" : ""}`,
-      }}
-    >
-      Who
-      <span>Add guests</span>
-      <BiSearch className="searchIcon" />
-      <div
-        className="loactionOpts"
-        style={{
-          display: `${activeSelect === "guest" && showItems ? "flex" : "none"}`,
-        }}
-      >
-        {guests.map((items, x) => {
-          let count = 0;
-          items.value = count;
-          console.log(count);
-          return (
-            <div className="gueststabs">
-              <div className="guestType">
-                <span className="guestType-heading">{items.type}</span>
-                <span>{items.des}</span>
-              </div>
-              <div className="guestCount">
-                <RiSubtractFill className="subsguest guestnum" />
-                <input
-                  contentEditable="false"
-                  value={items.value}
-                  name={items.type}
-                  style={{
-                    outline: "none",
-                    border: "none",
-                    width: "1ch",
-                    maxWidth: "2ch",
-                  }}
-                />
-                <RiAddFill
-                  className="addsguest guestnum addAdults"
-                  onClick={handlechange}
-                />
-              </div>
-            </div>
-          );
-        })}
-      </div>
+    <div>
+      {/* Use the map() function to render the array of guests */}
+      {guests.map((guest, index) => (
+        <div key={index} className="gueststabs">
+          <div className="guestType">
+            <div className="guestType">{guest.type}</div>
+            <div>{guest.des}</div>
+          </div>
+          <div className="guestCount">
+            {/* Provide buttons to increase or decrease the value of the guest */}
+            <button onClick={() => handleChange(index, -1)}>
+              <RiSubtractFill className="subsguest guestnum" />
+            </button>
+            {guest.value}
+            <button onClick={() => handleChange(index, 1)}>
+              <RiAddFill className="addsguest guestnum " />
+            </button>
+          </div>
+        </div>
+      ))}
+
+      {/* Display the total value */}
+      <div>Total: {total}</div>
     </div>
   );
 };
