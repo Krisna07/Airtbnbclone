@@ -18,7 +18,6 @@ const Checkin = ({
       className="opt checkin"
       onClick={() => {
         setActiveSelect("checkin");
-        setShow(!showItems);
       }}
       onMouseOver={hoverItem}
       onMouseLeave={leavehover}
@@ -28,16 +27,24 @@ const Checkin = ({
     >
       <div
         style={{
+          width: "100%",
           display: "flex",
           gap: "10px",
           justifyContent: "space-between",
           alignItems: "center",
         }}
+        onClick={() => setShow(!showItems)}
       >
         <div style={{ display: "grid", gap: "10px" }}>
           Check in
           <span>{startDate}</span>
         </div>
+        <RiCloseFill
+          onClick={() => {
+            setShow(!showItems);
+            startDate = null;
+          }}
+        />
       </div>
 
       <div

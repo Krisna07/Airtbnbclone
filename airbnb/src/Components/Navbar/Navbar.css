@@ -7,6 +7,8 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  position: relative;
+  z-index: 99;
   /* padding: 1rem 0; */
 }
 .nav-items {
@@ -220,14 +222,19 @@
 
 .searchIcon {
   padding: 20px;
-  border-radius: 50%;
+  border-radius: 40px;
   background-color: #bd1e59;
   position: absolute;
   right: 5px;
   top: 5px;
   /* top: 0; */
   color: white;
+  transition: all ease 200ms;
   /* right: -10px; */
+}
+.searchIcon::after {
+  content: "Search";
+  color: black;
 }
 .loactionOpts {
   /* width: ; */
@@ -244,6 +251,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+  z-index: 999;
 }
 .mapItems {
   display: grid;
@@ -384,7 +392,11 @@
   color: white;
   border-radius: 50%;
 }
-
+.chngBtn {
+  border: none;
+  display: flex;
+  align-items: center;
+}
 /* styling of expandables ends here */
 /* 
 
