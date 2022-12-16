@@ -1,8 +1,28 @@
 import React from "react";
+import axios from "axios";
 import "./Thumbnail.css";
 import { FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 
 const Thumbnail = () => {
+  const API_KEY = "key_f0e9b1bbdbf67fe0d74967a50a78bdfe";
+  const getListings = async () => {
+    const response = await axios.get(
+      "https://api.domain.com.au/v1/listings/residential/_search",
+      {
+        params: {
+          apiKey: API_KEY,
+          includeFields:
+            "mainPhotoUrl,price,displayableAddress,bedrooms,description",
+        },
+      }
+    );
+    const listings = response.data.listings;
+    return listings;
+  };
+
+  getListings().then((listings) => {
+    console.log(listings);
+  });
   const thumbnails = [
     {
       location: "East Gosford, Australia",

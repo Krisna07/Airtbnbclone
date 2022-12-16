@@ -25,7 +25,7 @@ const Guestopt = ({ hoverItem, setActiveSelect, leavehover, activeSelect }) => {
     },
     {
       type: "Pets",
-      des: <a href="">Bringing the pets</a>,
+      des: <a>Bringing the pets</a>,
       value: 0,
     },
   ]);
