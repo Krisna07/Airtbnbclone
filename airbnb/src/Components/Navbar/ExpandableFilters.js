@@ -5,7 +5,7 @@ import Checkin from "./Checkin";
 import { Checkout } from "./Checkout";
 import Guestopt from "./Guestopt";
 
-const ExpandableFilters = () => {
+const ExpandableFilters = ({}) => {
   const [activenav, setActivenav] = useState("Stays");
   let startDate;
   let endDate;

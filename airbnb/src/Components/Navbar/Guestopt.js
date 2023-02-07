@@ -5,7 +5,13 @@ import { RiAddFill, RiSubtractFill } from "react-icons/ri";
 
 // import Increasingnumber from "./Increasingnumber";
 
-const Guestopt = ({ hoverItem, setActiveSelect, leavehover, activeSelect }) => {
+const Guestopt = ({
+  hoverItem,
+  setActiveSelect,
+  leavehover,
+  activeSelect,
+  hideExpandable,
+}) => {
   // Declare an array of guests with their details
   const [guests, setGuests] = useState([
     {
@@ -82,10 +88,10 @@ const Guestopt = ({ hoverItem, setActiveSelect, leavehover, activeSelect }) => {
             {total} {"Guests"}
           </span>
         </div>
-        <BiSearch
-          className="searchIcon"
-          style={{ padding: `${showItems ? "20px 20px 20px 80px" : "20px "}` }}
-        />
+        <button className="searchIcon">
+          <BiSearch />
+          {showItems ? "Search" : ""}
+        </button>
       </div>
 
       {/* Use the map() function to render the array of guests */}

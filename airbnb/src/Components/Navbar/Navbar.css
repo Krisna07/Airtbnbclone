@@ -221,19 +221,25 @@
 }
 
 .searchIcon {
-  padding: 20px;
+  padding: 15px;
   border-radius: 40px;
   background-color: #bd1e59;
   position: absolute;
   right: 5px;
-  top: 5px;
+  /* top: 5px; */
   /* top: 0; */
   color: white;
   transition: all ease 200ms;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 20px;
+  line-height: 20px;
   /* right: -10px; */
 }
 .searchIcon::after {
-  content: "Search";
   color: black;
 }
 .loactionOpts {
@@ -396,6 +402,7 @@
   border: none;
   display: flex;
   align-items: center;
+  background: none;
 }
 /* styling of expandables ends here */
 /* 

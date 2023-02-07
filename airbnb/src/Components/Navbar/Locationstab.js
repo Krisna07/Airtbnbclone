@@ -7,6 +7,7 @@ const Locationstab = ({
   leavehover,
   activeSelect,
 }) => {
+  const [location, setLocation] = useState("Search destination");
   const mapItems = [
     {
       title: "I,m flexible",
@@ -54,7 +55,7 @@ const Locationstab = ({
       }}
     >
       Where
-      <span>Search destination</span>
+      <span>{location}</span>
       <div
         className="loactionOpts"
         style={{
@@ -68,7 +69,11 @@ const Locationstab = ({
         </div>
         <div className="mapItems">
           {mapItems.map((items, x) => (
-            <div className="map-box" key={x}>
+            <div
+              className="map-box"
+              key={x}
+              onClick={() => setLocation(items.title)}
+            >
               <div className="img-container">
                 <img src={items.imgsrc} alt="" />
               </div>
