@@ -24,6 +24,7 @@ import { RiScreenshotFill } from "react-icons/ri";
 import { SiWolfram } from "react-icons/si";
 import { FaFire, FaHatCowboy, FaPaw } from "react-icons/fa";
 import { BiBuilding } from "react-icons/bi";
+import { useState } from "react";
 
 const Features = () => {
   const features = [

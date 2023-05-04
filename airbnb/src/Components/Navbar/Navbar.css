@@ -7,7 +7,8 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 99;
   /* padding: 1rem 0; */
 }
@@ -401,13 +402,18 @@
 .features {
   width: 80%;
   display: flex;
-  overflow-x: scroll;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
 }
 .features-box {
   width: fit-content;
   display: flex;
   align-items: center;
   gap: 1rem;
+  position: relative;
+  transition: all ease-in-out 300ms;
 }
 .featureContainer {
   min-width: fit-content;
@@ -419,6 +425,7 @@
   color: rgb(112, 111, 111);
   box-sizing: border-box;
   position: relative;
+
   /* gap: 10px; */
 }
 .featureContainer:hover::after {
@@ -439,4 +446,23 @@
 .featureName {
   /* min-width: fit-content; */
   font-weight: 600;
+}
+.slider {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+.sliderIcon {
+  position: absolute;
+  padding: 1rem;
+  background-color: rgb(190, 195, 199);
+  border-radius: 50%;
+}
+.slider .left {
+  left: 0;
+}
+.slider .right {
+  right: 0;
 }
