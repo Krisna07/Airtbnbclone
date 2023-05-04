@@ -1,72 +1,131 @@
 import React from "react";
-import { FaFire, FaHome } from "react-icons/fa";
-import { GiBowlingPin, GiFishingBoat, GiIsland } from "react-icons/gi";
+import {
+  GiAlienBug,
+  GiBathtub,
+  GiBeachBag,
+  GiBunkBeds,
+  GiCampfire,
+  GiCastle,
+  GiDiamondRing,
+  GiEnergyBreath,
+  GiFamilyHouse,
+  GiFruitBowl,
+  GiGolfFlag,
+  GiHearts,
+  GiHills,
+  GiHouse,
+  GiPoolDive,
+  GiShoppingBag,
+  GiSkiBoot,
+  GiTreeBranch,
+  GiWineBottle,
+} from "react-icons/gi";
+import { RiScreenshotFill } from "react-icons/ri";
+import { SiWolfram } from "react-icons/si";
+import { FaFire, FaHatCowboy, FaPaw } from "react-icons/fa";
+import { BiBuilding } from "react-icons/bi";
 
 const Features = () => {
   const features = [
     {
+      title: "Rooms",
+      icon: <GiBunkBeds />,
+    },
+    {
+      title: "Countryside",
+      icon: <GiHills />,
+    },
+    {
+      title: "Tiny homes",
+      icon: <GiHouse />,
+    },
+    {
+      title: "Amazing views",
+      icon: <RiScreenshotFill />,
+    },
+    {
       title: "Design",
-      icon: <FaHome />,
+      icon: <SiWolfram />,
     },
     {
       title: "Trending",
       icon: <FaFire />,
     },
     {
-      title: "Design",
-      icon: <GiIsland />,
+      title: "OMG!",
+      icon: <GiAlienBug />,
     },
     {
-      title: "Trending",
-      icon: <GiBowlingPin />,
+      title: "Luxury",
+      icon: <GiDiamondRing />,
     },
     {
-      title: "Design",
-      icon: <GiFishingBoat />,
+      title: "Beachfront",
+      icon: <GiBeachBag />,
     },
     {
-      title: "Trending",
-      icon: <FaFire />,
+      title: "Ski-in/ski-out",
+      icon: <GiSkiBoot />,
     },
     {
-      title: "Design",
-      icon: <FaHome />,
+      title: "Castles",
+      icon: <GiCastle />,
     },
     {
-      title: "Trending",
-      icon: <FaFire />,
+      title: "Family-friendly",
+      icon: <GiFamilyHouse />,
     },
     {
-      title: "Design",
-      icon: <FaHome />,
+      title: "Pet-friendly",
+      icon: <FaPaw />,
     },
     {
-      title: "Trending",
-      icon: <FaFire />,
+      title: "Eco-friendly",
+      icon: <GiEnergyBreath />,
     },
     {
-      title: "Design",
-      icon: <FaHome />,
+      title: "Romantic",
+      icon: <GiHearts />,
     },
     {
-      title: "Trending",
-      icon: <FaFire />,
+      title: "City",
+      icon: <BiBuilding />,
     },
     {
-      title: "Design",
-      icon: <FaHome />,
+      title: "Shopping",
+      icon: <GiShoppingBag />,
     },
     {
-      title: "Trending",
-      icon: <FaFire />,
+      title: "Spa",
+      icon: <GiBathtub />,
     },
     {
-      title: "Design",
-      icon: <FaHome />,
+      title: "Adventure",
+      icon: <FaHatCowboy />,
     },
     {
-      title: "Trending",
-      icon: <FaFire />,
+      title: "Golf",
+      icon: <GiGolfFlag />,
+    },
+    {
+      title: "Camping",
+      icon: <GiCampfire />,
+    },
+    {
+      title: "Nature",
+      icon: <GiTreeBranch />,
+    },
+    {
+      title: "Farm stays",
+      icon: <GiFruitBowl />,
+    },
+    {
+      title: "Wine country",
+      icon: <GiWineBottle />,
+    },
+    {
+      title: "Pools",
+      icon: <GiPoolDive />,
     },
   ];
 

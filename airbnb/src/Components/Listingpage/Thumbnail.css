@@ -1,11 +1,12 @@
 .thumbnailContainer {
   width: 90%;
   display: flex;
-  gap: 2rem;
+
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  /* background-color: bisque; */
+  gap: 1rem;
+
   padding: 1rem;
 }
 .thumbnailsbody {
@@ -14,23 +15,101 @@
   gap: 1rem;
 }
 .imageconatiner {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   background: rgb(138, 135, 135);
   border-radius: 20px;
   position: relative;
+  overflow: hidden;
 }
-.fav-icon {
+.imageconatiner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right;
+}
+
+.favIcon {
   position: absolute;
+  width: 32px;
   padding: 1rem;
   right: 0;
   top: 0;
+  color: rgb(182, 182, 182);
+  overflow: hidden;
 }
+
+/* .icon::before {
+  content: "a";
+  background-color: aqua;
+} */
+
 .thumbDes {
   position: relative;
+  display: grid;
+  gap: 4px;
 }
 .star-rental {
   position: absolute;
   top: 0;
   right: 0;
+}
+.imagebookContainer {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 100px;
+  height: 120px;
+  /* padding: 1rem 0.5rem; */
+  background-color: white;
+  border-radius: 2px 10px 10px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumbprice {
+  width: fit-content;
+  font-weight: 600;
+  word-spacing: 2px;
+  display: flex;
+  gap: 5px;
+  position: relative;
+}
+.hostImage {
+  width: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.thumbprice::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background-color: black;
+  bottom: 0;
+  left: 0;
+}
+.thumbBeds {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.hostImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+.line {
+  position: absolute;
+  background: rgb(189, 189, 189);
+  width: 1px;
+  height: 100%;
+  border: none;
+  left: 10%;
+  box-shadow: 1px 1px 1px 0 rgb(68, 68, 68);
 }

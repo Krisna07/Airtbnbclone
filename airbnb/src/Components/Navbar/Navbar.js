@@ -69,8 +69,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="features-box">
-        <Features />
+      <div className="features">
+        <div className="features-box">
+          {" "}
+          <Features />
+        </div>
       </div>
     </div>
   );
