@@ -85,8 +85,12 @@ const Navbar = () => {
         </div>
       </div>
       <div className="features">
-        <div className="features-box" ref={featuresref}>
-          <div className="featuresWrapper" style={{ right: `${moreIcons}px` }}>
+        <div className="features-box">
+          <div
+            className="featuresWrapper"
+            style={{ right: `${moreIcons}px` }}
+            ref={featuresref}
+          >
             <Features />
           </div>
           <div className="slider">
