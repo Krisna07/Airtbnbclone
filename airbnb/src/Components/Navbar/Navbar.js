@@ -4,11 +4,12 @@ import { SiAirbnb } from "react-icons/si";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaChevronLeft, FaChevronRight, FaUserCircle } from "react-icons/fa";
 
-import { BiGlobe, BiSearch } from "react-icons/bi";
+import { BiFilter, BiGlobe, BiSearch } from "react-icons/bi";
 import ExpandableFilters from "./ExpandableFilters";
 import Features from "./Features";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { RiFilter3Line } from "react-icons/ri";
 
 const Navbar = () => {
   const [actions, setActions] = useState(false);
@@ -84,30 +85,32 @@ const Navbar = () => {
         </div>
       </div>
       <div className="features">
-        <div
-          className="features-box"
-          style={{ right: `${moreIcons}px` }}
-          ref={featuresref}
-        >
-          <Features />
+        <div className="features-box" ref={featuresref}>
+          <div className="featuresWrapper" style={{ right: `${moreIcons}px` }}>
+            <Features />
+          </div>
+          <div className="slider">
+            {moreIcons != 0 ? (
+              <FaChevronLeft
+                className="sliderIcon left"
+                onClick={() => moveRight("")}
+              />
+            ) : (
+              ""
+            )}
+            {moreIcons < fwidth - 900 ? (
+              <FaChevronRight
+                className="sliderIcon right"
+                onClick={() => moveRight("add")}
+              />
+            ) : (
+              ""
+            )}
+          </div>
         </div>
-        <div className="slider">
-          {moreIcons != 0 ? (
-            <FaChevronLeft
-              className="sliderIcon left"
-              onClick={() => moveRight("")}
-            />
-          ) : (
-            ""
-          )}
-          {moreIcons < fwidth - 900 ? (
-            <FaChevronRight
-              className="sliderIcon right"
-              onClick={() => moveRight("add")}
-            />
-          ) : (
-            ""
-          )}
+
+        <div className="filterBtn">
+          <RiFilter3Line /> Filter
         </div>
       </div>
     </div>

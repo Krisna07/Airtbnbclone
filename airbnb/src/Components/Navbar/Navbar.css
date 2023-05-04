@@ -400,15 +400,24 @@
 */
 /* filter box stylings */
 .features {
-  width: 80%;
+  width: 90%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   overflow: hidden;
-  padding: 1rem 0;
+  box-sizing: border-box;
+  padding: 1rem;
 }
 .features-box {
-  width: fit-content;
+  width: 90%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.featuresWrapper {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -465,4 +474,12 @@
 }
 .slider .right {
   right: 0;
+}
+.filterBtn {
+  width: fit-content;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 2px 0px gray;
+  /* position: absolute; */
+  right: 0;
+  border-radius: 5px;
 }
