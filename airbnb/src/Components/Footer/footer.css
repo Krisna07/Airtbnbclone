@@ -1,11 +1,39 @@
 .footerContainer {
   width: 100%;
-  padding: 1rem;
   background: rgb(224, 223, 223);
   position: fixed;
   box-sizing: border-box;
   bottom: 0;
   display: flex;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
+}
+.footer {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 8px; */
+}
+.rightFooter {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rightFooter ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+.rightFooter li:hover {
+  text-decoration: underline;
+}
+.leftFooter {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-weight: 600;
 }

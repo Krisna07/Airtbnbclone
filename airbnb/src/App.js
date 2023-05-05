@@ -20,7 +20,9 @@ function App() {
     const fetchpropertyDetails = async () => {
       try {
         const respoonse = await axios.get(
-          `https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-listings&q=&rows=20&start=0&refine.property_type=${features}&refine.country=${options.loaction}`
+          `https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-listings&q=&rows=20&start=0&${
+            features ? `refine.property_type=${features}` : ""
+          }&refine.country=${options.loaction}`
         );
         setListing(respoonse.data.records);
         console.log(respoonse.data);
