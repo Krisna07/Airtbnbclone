@@ -4,13 +4,15 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  row-gap: 3rem;
   position: relative;
   top: 220px;
   box-sizing: border-box;
   padding: 1rem;
   height: fit-content;
   padding-bottom: 100px;
+  cursor: pointer;
 }
 .thumbnailsbody {
   display: flex;
@@ -70,6 +72,9 @@
   align-items: center;
   justify-content: center;
 }
+.thumbtitle {
+  font-weight: 600;
+}
 .thumbprice {
   width: fit-content;
   font-weight: 600;
@@ -115,4 +120,53 @@
   border: none;
   left: 10%;
   box-shadow: 1px 1px 1px 0 rgb(68, 68, 68);
+}
+
+.nolisitingpage {
+  /* background-color: aqua; */
+  position: relative;
+  border-radius: 50%;
+  padding: 2rem;
+  box-shadow: 0 0 2px 0 gray;
+  background-color: azure;
+}
+.airIcon {
+  font-size: 200px;
+  color: red;
+}
+.circleRound {
+  width: 110%;
+
+  height: 110%;
+  background-color: rgb(245, 234, 234);
+  position: absolute;
+  left: -5%;
+  top: -5%;
+  z-index: -1;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: rotate infinite 2s;
+}
+.red {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 50%;
+  background-color: brown;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loadingStatus {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
 }

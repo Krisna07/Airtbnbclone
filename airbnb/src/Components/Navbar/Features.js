@@ -1,139 +1,82 @@
 import React from "react";
 import {
-  GiAlienBug,
-  GiBathtub,
-  GiBeachBag,
-  GiBunkBeds,
-  GiCampfire,
+  GiBlockHouse,
+  GiCampCookingPot,
+  GiCampingTent,
   GiCastle,
-  GiDiamondRing,
-  GiEnergyBreath,
   GiFamilyHouse,
-  GiFruitBowl,
-  GiGolfFlag,
-  GiHearts,
-  GiHills,
-  GiHouse,
-  GiPoolDive,
-  GiShoppingBag,
-  GiSkiBoot,
-  GiTreeBranch,
-  GiWineBottle,
+  GiFlowerPot,
+  GiHut,
+  GiIgloo,
+  GiSandCastle,
+  GiStalactites,
+  GiTreehouse,
+  GiWoodCabin,
 } from "react-icons/gi";
-import { RiScreenshotFill } from "react-icons/ri";
-import { SiWolfram } from "react-icons/si";
-import { FaFire, FaHatCowboy, FaPaw } from "react-icons/fa";
-import { BiBuilding } from "react-icons/bi";
-import { useState } from "react";
+import { RiBuilding2Line, RiBuildingLine, RiHotelLine } from "react-icons/ri";
 
-const Features = () => {
+import {
+  FaBed,
+  FaCaravan,
+  FaHotel,
+  FaSchool,
+  FaSearchLocation,
+  FaShip,
+} from "react-icons/fa";
+import {
+  BiBuildingHouse,
+  BiBus,
+  BiDotsHorizontal,
+  BiHotel,
+  BiTrain,
+  BiUnlink,
+} from "react-icons/bi";
+import { MdCabin } from "react-icons/md";
+import { useState } from "react";
+import { SiBasecamp } from "react-icons/si";
+
+const Features = ({ updateFeatures }) => {
   const features = [
-    {
-      title: "Rooms",
-      icon: <GiBunkBeds />,
-    },
-    {
-      title: "Countryside",
-      icon: <GiHills />,
-    },
-    {
-      title: "Tiny homes",
-      icon: <GiHouse />,
-    },
-    {
-      title: "Amazing views",
-      icon: <RiScreenshotFill />,
-    },
-    {
-      title: "Design",
-      icon: <SiWolfram />,
-    },
-    {
-      title: "Trending",
-      icon: <FaFire />,
-    },
-    {
-      title: "OMG!",
-      icon: <GiAlienBug />,
-    },
-    {
-      title: "Luxury",
-      icon: <GiDiamondRing />,
-    },
-    {
-      title: "Beachfront",
-      icon: <GiBeachBag />,
-    },
-    {
-      title: "Ski-in/ski-out",
-      icon: <GiSkiBoot />,
-    },
-    {
-      title: "Castles",
-      icon: <GiCastle />,
-    },
-    {
-      title: "Family-friendly",
-      icon: <GiFamilyHouse />,
-    },
-    {
-      title: "Pet-friendly",
-      icon: <FaPaw />,
-    },
-    {
-      title: "Eco-friendly",
-      icon: <GiEnergyBreath />,
-    },
-    {
-      title: "Romantic",
-      icon: <GiHearts />,
-    },
-    {
-      title: "City",
-      icon: <BiBuilding />,
-    },
-    {
-      title: "Shopping",
-      icon: <GiShoppingBag />,
-    },
-    {
-      title: "Spa",
-      icon: <GiBathtub />,
-    },
-    {
-      title: "Adventure",
-      icon: <FaHatCowboy />,
-    },
-    {
-      title: "Golf",
-      icon: <GiGolfFlag />,
-    },
-    {
-      title: "Camping",
-      icon: <GiCampfire />,
-    },
-    {
-      title: "Nature",
-      icon: <GiTreeBranch />,
-    },
-    {
-      title: "Farm stays",
-      icon: <GiFruitBowl />,
-    },
-    {
-      title: "Wine country",
-      icon: <GiWineBottle />,
-    },
-    {
-      title: "Pools",
-      icon: <GiPoolDive />,
-    },
+    { title: "Apartment", icon: <BiBuildingHouse /> },
+    { title: "House", icon: <GiFamilyHouse /> },
+    { title: "Townhouse", icon: <GiBlockHouse /> },
+    { title: "Bed & Breakfast", icon: <GiCampCookingPot /> },
+    { title: "Other", icon: <BiDotsHorizontal /> },
+    { title: "Villa", icon: <FaSearchLocation /> },
+    { title: "Cabin", icon: <GiWoodCabin /> },
+    { title: "Bungalow", icon: <BiHotel /> },
+    { title: "Guesthouse", icon: <RiHotelLine /> },
+    { title: "Loft", icon: <RiBuilding2Line /> },
+    { title: "Dorm", icon: <FaSchool /> },
+    { title: "Condominium", icon: <GiFlowerPot /> },
+    { title: "Camper/RV", icon: <BiBus /> },
+    { title: "Hostel", icon: <FaBed /> },
+    { title: "Boat", icon: <FaShip /> },
+    { title: "Serviced apartment", icon: <RiBuilding2Line /> },
+    { title: "Tent", icon: <GiCampCookingPot /> },
+    { title: "Treehouse", icon: <GiTreehouse /> },
+    { title: "Boutique hotel", icon: <FaHotel /> },
+    { title: "Chalet", icon: <MdCabin /> },
+    { title: "Earth House", icon: <GiStalactites /> },
+    { title: "Yurt", icon: <SiBasecamp /> },
+    { title: "Hut", icon: <GiHut /> },
+    { title: "Timeshare", icon: <GiSandCastle /> },
+    { title: "Castle", icon: <GiCastle /> },
+    { title: "Tipi", icon: <GiCampingTent /> },
+    { title: "Nature lodge", icon: <FaHotel /> },
+    { title: "Train", icon: <BiTrain /> },
+    { title: "Igloo", icon: <GiIgloo /> },
+    { title: "Van", icon: <FaCaravan /> },
   ];
 
   return (
     <>
       {features.map((items, x) => (
-        <div className="featureContainer" key={x}>
+        <div
+          className="featureContainer"
+          key={x}
+          onClick={() => updateFeatures(items.title)}
+        >
           <div className="featureIcon">{items.icon}</div>
           <div className="featureName">{items.title}</div>
         </div>

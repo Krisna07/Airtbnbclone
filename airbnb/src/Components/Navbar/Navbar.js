@@ -11,7 +11,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { RiFilter3Line } from "react-icons/ri";
 
-const Navbar = () => {
+const Navbar = ({ updateFeatures }) => {
   const [actions, setActions] = useState(false);
   const [filters, setFilters] = useState();
   const hideExpandable = () => {
@@ -91,26 +91,31 @@ const Navbar = () => {
             style={{ right: `${moreIcons}px` }}
             ref={featuresref}
           >
-            <Features />
+            <Features updateFeatures={updateFeatures} />
           </div>
-          <div className="slider">
-            {moreIcons != 0 ? (
+        </div>
+        <div className="slider">
+          {moreIcons != 0 ? (
+            <div className="slideEdge left">
               <FaChevronLeft
-                className="sliderIcon left"
+                className="sliderIcon "
                 onClick={() => moveRight("")}
               />
-            ) : (
-              ""
-            )}
-            {moreIcons < fwidth - 900 ? (
+            </div>
+          ) : (
+            ""
+          )}
+          {moreIcons < fwidth ? (
+            <div className="slideEdge right">
               <FaChevronRight
-                className="sliderIcon right"
+                className="sliderIcon "
+                style={{ right: "-50%" }}
                 onClick={() => moveRight("add")}
               />
-            ) : (
-              ""
-            )}
-          </div>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className="filterBtn">
