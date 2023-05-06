@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
+import Listing from "./Components/Listing/Listing";
 import Thumbnail from "./Components/Listingpage/Thumbnail";
 
 import Navbar from "./Components/Navbar/Navbar";
@@ -38,6 +39,7 @@ function App() {
       <Navbar updateFeatures={updateFeatures} />
       <Thumbnail listing={listing.length > 0 ? listing : []} />
       <Footer />
+      <Listing />
     </div>
   );
 }
