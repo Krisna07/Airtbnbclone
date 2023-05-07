@@ -13,14 +13,17 @@ import {
 } from "react-icons/fa";
 import { image } from "rangen";
 
-const Thumbnail = ({ listing }) => {
-  console.log(listing);
+const Thumbnail = ({ listing, updateProperty }) => {
   return (
     <div className="thumbnailContainer">
       {listing.length > 0 ? (
         listing.map((property, x) => {
           return (
-            <div className="thumbnailsbody" key={property.fields.id}>
+            <div
+              className="thumbnailsbody"
+              key={property.fields.id}
+              onClick={() => updateProperty(property.fields)}
+            >
               <div className="imageconatiner">
                 <img
                   src={`${property.fields.medium_url}`}

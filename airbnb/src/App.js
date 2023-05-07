@@ -9,9 +9,13 @@ import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
   const [listing, setListing] = useState([]);
+  const [property, setProperty] = useState();
   const [features, setFeatures] = useState("");
   const updateFeatures = (newFeatures) => {
     setFeatures(newFeatures);
+  };
+  const updateProperty = (property) => {
+    setProperty(property);
   };
   const options = {
     loaction: "Australia",
@@ -37,9 +41,15 @@ function App() {
   return (
     <div className="App">
       <Navbar updateFeatures={updateFeatures} />
-      <Thumbnail listing={listing.length > 0 ? listing : []} />
+      {property ? (
+        <Listing property={property} updateProperty={updateProperty} />
+      ) : (
+        <Thumbnail
+          listing={listing.length > 0 ? listing : []}
+          updateProperty={updateProperty}
+        />
+      )}
       <Footer />
-      <Listing />
     </div>
   );
 }

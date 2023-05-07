@@ -1,6 +1,90 @@
 .listingPage {
-  width: 50%;
-  height: 80%;
+  width: 90%;
+  gap: 1.5rem;
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  padding: 1rem;
+
+  top: 200px;
+  gap: 2rem;
+}
+.propertyNav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  font-size: 40px;
+  font-weight: 600;
+}
+.lisitingType {
+  display: grid;
+  gap: 1rem;
+}
+.lisitingType .title {
+  font-size: 24px;
+}
+.lochostDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.locHost {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.policy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.policy::first-letter {
+  text-transform: capitalize;
+}
+.locHost .location {
+  font-weight: 600;
+  text-decoration: underline;
+}
+.shareSave {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.shareSave span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.listingImage {
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  object-fit: contain;
+  position: relative;
+}
+.listingImage img {
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
+}
+.listingImage img:hover {
+  filter: brightness(0.9) opacity(0.8);
+}
+.showAll {
   position: absolute;
-  background-color: rgba(222, 221, 224);
+  bottom: 50px;
+  right: 50px;
+  padding: 4px 16px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  border-radius: 4px;
+  outline: 1px solid black;
 }
