@@ -11,7 +11,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { RiFilter3Line } from "react-icons/ri";
 
-const Navbar = ({ updateFeatures }) => {
+const Navbar = ({ updateFeatures, updateProperty }) => {
   const [actions, setActions] = useState(false);
   const [filters, setFilters] = useState();
   const hideExpandable = () => {
@@ -29,12 +29,13 @@ const Navbar = ({ updateFeatures }) => {
     const features = featuresref.current;
     setFwidth(features.getBoundingClientRect().width);
   }, []);
-  console.log(moreIcons);
+
   return (
     <div className="nav-container" onScroll={hideExpandable}>
       <div className="nav-items">
         <div className="logo-box">
-          <SiAirbnb className="logo-icon" /> airbnb
+          <SiAirbnb className="logo-icon" onClick={() => updateProperty("")} />{" "}
+          airbnb
         </div>
         {!filters ? (
           <div

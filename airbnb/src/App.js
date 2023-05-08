@@ -40,7 +40,7 @@ function App() {
   console.log(features);
   return (
     <div className="App">
-      <Navbar updateFeatures={updateFeatures} />
+      <Navbar updateFeatures={updateFeatures} updateProperty={updateProperty} />
       {property ? (
         <Listing property={property} updateProperty={updateProperty} />
       ) : (
