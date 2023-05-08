@@ -42,6 +42,18 @@ export default function Listing({ property, updateProperty }) {
           <TbGridDots /> Show all photos
         </div>
       </div>
+      <div className="lisitingDescriptions">
+        <div className="propertyTitleCon">
+          <div className="listingtitle">{property.name}</div>
+          <div className="propertySpecs">
+            <span>{property.guests_included} guests</span>
+            <span>{property.bedrooms} bedrooms</span>
+            <span>{property.beds} beds</span>
+            <span>{property.bathrooms} baths</span>
+          </div>
+        </div>
+        <div className="descontainer">{property.description}</div>
+      </div>
     </div>
   );
 }

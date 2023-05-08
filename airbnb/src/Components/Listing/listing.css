@@ -7,6 +7,7 @@
   padding: 1rem;
 
   top: 200px;
+  padding-bottom: 100px;
   gap: 2rem;
 }
 .propertyNav {
@@ -79,7 +80,7 @@
   position: absolute;
   bottom: 50px;
   right: 50px;
-  padding: 4px 16px;
+  padding: 8px 16px;
   background-color: white;
   display: flex;
   align-items: center;
@@ -87,4 +88,42 @@
   font-size: 20px;
   border-radius: 4px;
   outline: 1px solid black;
+}
+.lisitingDescriptions {
+  width: 60%;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+.propertyTitleCon {
+  width: 100%;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  box-shadow: 0 1px 0px 0 gray;
+  padding-bottom: 2rem;
+}
+.listingtitle {
+  font-size: 28px;
+  font-weight: 500;
+}
+.propertySpecs {
+  display: flex;
+  gap: 1rem;
+}
+.propertySpecs span {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+.propertySpecs span::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background-color: black;
+  border-radius: 50%;
+}
+.propertySpecs span:first-child::before {
+  width: 0;
 }
