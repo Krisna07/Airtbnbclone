@@ -1,19 +1,16 @@
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 
-import { FaDotCircle } from "react-icons/fa";
+import { FaDotCircle, FaPlane, FaSprayCan } from "react-icons/fa";
 import { TbGridDots } from "react-icons/tb";
 
 import { MdOutlineIosShare, MdPolicy } from "react-icons/md";
 import "./listing.css";
+import { GiChefToque } from "react-icons/gi";
 export default function Listing({ property, updateProperty }) {
   console.log(property);
   return (
     <div className="listingPage">
-      {/* <div className="propertyNav">
-        <FaAirbnb />
-        <MdClose onClick={() => updateProperty("")} />
-      </div> */}
       <div className="lisitingType">
         <div className="title">{property.property_type}</div>
         <div className="lochostDetails">
@@ -58,6 +55,40 @@ export default function Listing({ property, updateProperty }) {
             {property.property_type} by{" "}
           </span>
           <span style={{ fontWeight: "600" }}>{property.host_name}</span>
+        </div>
+        <div className="amenities">
+          <h2>What this place offers</h2>
+          <div className="amenitieslist">
+            {property.amenities
+              .split(",")
+              .slice(0, 10)
+              .map((items, x) => (
+                <span key={x}>{items}</span>
+              ))}
+          </div>
+          <button className="animitiesBtn">
+            Show all {property.amenities.split(",").length} amenities
+          </button>
+        </div>
+        <div className="addons">
+          <h2>Add on service</h2>
+          <p>
+            After booking this {property.property_type}, a trip designer can
+            arrange any of these add-on services.
+          </p>
+          <div className="addonList">
+            <span>
+              <GiChefToque /> Chef
+            </span>
+            <span>
+              <FaSprayCan /> Cleaning
+            </span>
+            <span>
+              <FaPlane /> Airport transfer
+            </span>
+          </div>
+          <p>Not seeing something that you would like to order?</p>
+          <button className="animitiesBtn">Message a trip designer</button>
         </div>
       </div>
     </div>
