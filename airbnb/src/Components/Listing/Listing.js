@@ -53,6 +53,12 @@ export default function Listing({ property, updateProperty }) {
           </div>
         </div>
         <div className="descontainer">{property.description}</div>
+        <div className="hostDetils">
+          <span style={{ fontStyle: "italic" }}>
+            {property.property_type} by{" "}
+          </span>
+          <span style={{ fontWeight: "600" }}>{property.host_name}</span>
+        </div>
       </div>
     </div>
   );
