@@ -85,26 +85,11 @@ export default function Listing({ property, updateProperty }) {
             } amenities`}
           />
         </div> */}
-        <div className="addons">
-          <h2>Add on service</h2>
-          <p>
-            After booking this {property.property_type}, a trip designer can
-            arrange any of these add-on services.
-          </p>
-          <div className="addonList">
-            <span>
-              <GiChefToque /> Chef
-            </span>
-            <span>
-              <FaSprayCan /> Cleaning
-            </span>
-            <span>
-              <FaPlane /> Airport transfer
-            </span>
-          </div>
-          <p>Not seeing something that you would like to order?</p>
-          <Button children={"Message a trip desinger"} />
-        </div>
+        <Listingcomp
+          listingHeadings={"Add on service"}
+          items={[` Chef`, ` Cleaning`, ` Airport transfer`]}
+          btnChildren={`Message a trip desinger`}
+        />
       </div>
     </div>
   );

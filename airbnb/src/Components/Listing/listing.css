@@ -134,28 +134,7 @@
 .propertySpecs span:first-child::before {
   width: 0;
 }
-.amenities {
-  display: grid;
-  border-bottom: 1px solid gray;
-  padding-bottom: 3rem;
-  gap: 2rem;
-}
-.amenitieslist {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1rem;
-  font-weight: 600;
-}
-.animitiesBtn {
-  position: relative;
-  padding: 10px 20px;
-  width: fit-content;
-  border-radius: 8px;
-  background-color: white;
-  border: 1px solid black;
-  font-size: 16px;
-  font-weight: 600;
-}
+
 .addons {
   border-bottom: 1px solid gray;
   padding-bottom: 3rem;
@@ -175,6 +154,8 @@
   width: 100%;
   display: grid;
   gap: 24px;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.336);
 }
 .lisitingHeading {
   font-size: 24px;
