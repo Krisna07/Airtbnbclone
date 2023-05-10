@@ -10,6 +10,7 @@ import "./listing.css";
 import { GiChefToque } from "react-icons/gi";
 import Button from "../Button/Button";
 import Listingcomp from "./listingcomp";
+import BookingCard from "./Bookingcard";
 export default function Listing({ property, updateProperty }) {
   console.log(property);
 
@@ -46,50 +47,39 @@ export default function Listing({ property, updateProperty }) {
         </div>
       </div>
       <div className="lisitingDescriptions">
-        <div className="propertyTitleCon">
-          <div className="listingtitle">{property.name}</div>
-          <div className="propertySpecs">
-            <span>{property.guests_included} guests</span>
-            <span>{property.bedrooms} bedrooms</span>
-            <span>{property.beds} beds</span>
-            <span>{property.bathrooms} baths</span>
+        <div className="listingDescontainer">
+          <div className="propertyTitleCon">
+            <div className="listingtitle">{property.name}</div>
+            <div className="propertySpecs">
+              <span>{property.guests_included} guests</span>
+              <span>{property.bedrooms} bedrooms</span>
+              <span>{property.beds} beds</span>
+              <span>{property.bathrooms} baths</span>
+            </div>
           </div>
-        </div>
-        <div className="descontainer">{property.description}</div>
-        <div className="hostDetils">
-          <span style={{ fontStyle: "italic" }}>
-            {property.property_type} by{" "}
-          </span>
-          <span style={{ fontWeight: "600" }}>{property.host_name}</span>
-        </div>
-        <Listingcomp
-          listingHeadings={"What this place offers"}
-          items={amenities.splice(0, 10)}
-          btnChildren={`Show all ${
-            property.amenities.split(",").length
-          } amenities`}
-        />
-        {/* <div className="amenities">
-          <h2>What this place offers</h2>
-          <div className="amenitieslist">
-            {property.amenities
-              .split(",")
-              .slice(0, 10)
-              .map((items, x) => (
-                <span key={x}>{items}</span>
-              ))}
+          <div className="descontainer">{property.description}</div>
+          <div className="hostDetils">
+            <span style={{ fontStyle: "italic" }}>
+              {property.property_type} by{" "}
+            </span>
+            <span style={{ fontWeight: "600" }}>{property.host_name}</span>
           </div>
-          <Button
-            children={`Show all ${
+          <Listingcomp
+            listingHeadings={"What this place offers"}
+            items={amenities.splice(0, 10)}
+            btnChildren={`Show all ${
               property.amenities.split(",").length
             } amenities`}
           />
-        </div> */}
-        <Listingcomp
-          listingHeadings={"Add on service"}
-          items={[` Chef`, ` Cleaning`, ` Airport transfer`]}
-          btnChildren={`Message a trip desinger`}
-        />
+          <Listingcomp
+            listingHeadings={"Add on service"}
+            items={[` Chef`, ` Cleaning`, ` Airport transfer`]}
+            btnChildren={`Message a trip desinger`}
+          />
+        </div>
+        <div className="bookingcardContainer">
+          <BookingCard price={property.price} />
+        </div>
       </div>
     </div>
   );

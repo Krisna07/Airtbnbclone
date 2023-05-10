@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import { SiAirbnb } from "react-icons/si";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaChevronLeft, FaChevronRight, FaUserCircle } from "react-icons/fa";
 
-import { BiFilter, BiGlobe, BiSearch } from "react-icons/bi";
+import { BiGlobe, BiSearch } from "react-icons/bi";
 import ExpandableFilters from "./ExpandableFilters";
 import Features from "./Features";
-import { useRef } from "react";
-import { useEffect } from "react";
+
 import { RiFilter3Line } from "react-icons/ri";
 
 const Navbar = ({ updateFeatures, updateProperty }) => {
@@ -20,7 +19,7 @@ const Navbar = ({ updateFeatures, updateProperty }) => {
   const [moreIcons, setMoreIcons] = useState(0);
   const [fwidth, setFwidth] = useState(0);
   const moveRight = (action) => {
-    action == "add"
+    action === "add"
       ? setMoreIcons(moreIcons + 200)
       : setMoreIcons(moreIcons - 200);
   };
@@ -96,7 +95,7 @@ const Navbar = ({ updateFeatures, updateProperty }) => {
           </div>
         </div>
         <div className="slider">
-          {moreIcons != 0 ? (
+          {moreIcons !== 0 ? (
             <div className="slideEdge left">
               <FaChevronLeft
                 className="sliderIcon "
