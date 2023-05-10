@@ -1,4 +1,5 @@
 import React from "react";
+
 import { AiOutlineHeart } from "react-icons/ai";
 
 import { FaDotCircle, FaPlane, FaSprayCan } from "react-icons/fa";
@@ -7,8 +8,13 @@ import { TbGridDots } from "react-icons/tb";
 import { MdOutlineIosShare, MdPolicy } from "react-icons/md";
 import "./listing.css";
 import { GiChefToque } from "react-icons/gi";
+import Button from "../Button/Button";
+import Listingcomp from "./listingcomp";
 export default function Listing({ property, updateProperty }) {
   console.log(property);
+
+  const amenities = property.amenities.split(",");
+
   return (
     <div className="listingPage">
       <div className="lisitingType">
@@ -36,7 +42,7 @@ export default function Listing({ property, updateProperty }) {
       <div className="listingImage">
         <img src={property.xl_picture_url} alt="propertyImage" width={"100%"} />
         <div className="showAll">
-          <TbGridDots /> Show all photos
+          <Button icon={<TbGridDots />} children={"Show all photos"} />
         </div>
       </div>
       <div className="lisitingDescriptions">
@@ -56,7 +62,14 @@ export default function Listing({ property, updateProperty }) {
           </span>
           <span style={{ fontWeight: "600" }}>{property.host_name}</span>
         </div>
-        <div className="amenities">
+        <Listingcomp
+          listingHeadings={"What this place offers"}
+          items={amenities.splice(0, 10)}
+          btnChildren={`Show all ${
+            property.amenities.split(",").length
+          } amenities`}
+        />
+        {/* <div className="amenities">
           <h2>What this place offers</h2>
           <div className="amenitieslist">
             {property.amenities
@@ -66,10 +79,12 @@ export default function Listing({ property, updateProperty }) {
                 <span key={x}>{items}</span>
               ))}
           </div>
-          <button className="animitiesBtn">
-            Show all {property.amenities.split(",").length} amenities
-          </button>
-        </div>
+          <Button
+            children={`Show all ${
+              property.amenities.split(",").length
+            } amenities`}
+          />
+        </div> */}
         <div className="addons">
           <h2>Add on service</h2>
           <p>
@@ -88,7 +103,7 @@ export default function Listing({ property, updateProperty }) {
             </span>
           </div>
           <p>Not seeing something that you would like to order?</p>
-          <button className="animitiesBtn">Message a trip designer</button>
+          <Button children={"Message a trip desinger"} />
         </div>
       </div>
     </div>
