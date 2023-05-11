@@ -1,7 +1,12 @@
 import React from "react";
 import { useState } from "react";
 
-const Locationstab = ({}) => {
+const Locationstab = ({
+  hoverItem,
+  setActiveSelect,
+  leavehover,
+  activeSelect,
+}) => {
   const [location, setLocation] = useState("Search destination");
   const mapItems = [
     {
@@ -35,18 +40,29 @@ const Locationstab = ({}) => {
         "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
     },
   ];
-
+  const [showItems, setShow] = useState();
   return (
-    <div>
+    <div
+      className="opt location"
+      onMouseOver={hoverItem}
+      onClick={() => {
+        setActiveSelect("location");
+        setShow(!showItems);
+      }}
+      onMouseLeave={leavehover}
+      style={{
+        backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
+      }}
+    >
       Where
       <span>{location}</span>
       <div
         className="loactionOpts"
-        // style={{
-        //   display: `${
-        //     activeSelect === "location" && showItems ? "flex" : "none"
-        //   }`,
-        // }}
+        style={{
+          display: `${
+            activeSelect === "location" && showItems ? "flex" : "none"
+          }`,
+        }}
       >
         <div className="opttitle">
           <h2>Search by region</h2>
