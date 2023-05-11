@@ -56,12 +56,25 @@ const ExpandableFilters = ({}) => {
         ))}
       </div>
       <div className="expandablenavOptions">
-        <Locationstab
-          hoverItem={hoverItem}
-          setActiveSelect={setActiveSelect}
-          leavehover={leavehover}
-          activeSelect={activeSelect}
-        />
+        <div
+          className="opt location"
+          onMouseOver={hoverItem}
+          onClick={() => {
+            setActiveSelect("location");
+            setShow(!showItems);
+          }}
+          onMouseLeave={leavehover}
+          style={{
+            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
+          }}
+        >
+          <Locationstab
+          // hoverItem={hoverItem}
+          // setActiveSelect={setActiveSelect}
+          // leavehover={leavehover}
+          // activeSelect={activeSelect}
+          />
+        </div>
         <span
           className="border"
           style={{

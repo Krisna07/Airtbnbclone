@@ -1,5 +1,6 @@
 import { React } from "react";
 import Button from "../Button/Button";
+import Guestopt from "../Navbar/Guestopt";
 
 export default function BookingCard({ price }) {
   return (
@@ -23,8 +24,7 @@ export default function BookingCard({ price }) {
         </div>
         <div className="guestContainer">
           <div className="checkoutContainer">
-            <span>GUESTS</span>
-            <input type="date" />
+            <Guestopt />
           </div>
         </div>
       </div>
