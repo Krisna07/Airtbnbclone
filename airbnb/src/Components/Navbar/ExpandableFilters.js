@@ -94,7 +94,66 @@ const ExpandableFilters = ({}) => {
             ""
           )}
         </div>
-
+        <div
+          className="expandabletab"
+          onMouseOver={hoverItem}
+          onClick={() => {
+            setActiveSelect("location");
+            setShow(!showItems);
+          }}
+          onMouseLeave={leavehover}
+          style={{
+            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
+          }}
+        >
+          Where
+          <span>{filteritems.location}</span>
+          {activeSelect === "location" && showItems ? (
+            <Locationstab FilterItemsHandler={FilterItemsHandler} />
+          ) : (
+            ""
+          )}
+        </div>{" "}
+        <div
+          className="expandabletab"
+          onMouseOver={hoverItem}
+          onClick={() => {
+            setActiveSelect("location");
+            setShow(!showItems);
+          }}
+          onMouseLeave={leavehover}
+          style={{
+            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
+          }}
+        >
+          Where
+          <span>{filteritems.location}</span>
+          {activeSelect === "location" && showItems ? (
+            <Locationstab FilterItemsHandler={FilterItemsHandler} />
+          ) : (
+            ""
+          )}
+        </div>{" "}
+        <div
+          className="expandabletab"
+          onMouseOver={hoverItem}
+          onClick={() => {
+            setActiveSelect("location");
+            setShow(!showItems);
+          }}
+          onMouseLeave={leavehover}
+          style={{
+            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
+          }}
+        >
+          Where
+          <span>{filteritems.location}</span>
+          {activeSelect === "location" && showItems ? (
+            <Locationstab FilterItemsHandler={FilterItemsHandler} />
+          ) : (
+            ""
+          )}
+        </div>
         {/* <Checkin
           hoverItem={hoverItem}
           setActiveSelect={setActiveSelect}
