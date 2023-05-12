@@ -4,6 +4,8 @@ import Locationstab from "./Locationstab";
 import Checkin from "./Checkin";
 import { Checkout } from "./Checkout";
 import Guestopt from "./Guestopt";
+import { RiAddFill, RiSubtractFill } from "react-icons/ri";
+import { BiSearch } from "react-icons/bi";
 
 const ExpandableFilters = ({}) => {
   const [activenav, setActivenav] = useState("Stays");
@@ -37,7 +39,23 @@ const ExpandableFilters = ({}) => {
     ? date[0].startDate.toDateString()
     : "Choose date";
   endDate = date[0].endDate ? date[0].endDate.toDateString() : "Choose date";
+  const [showItems, setShow] = useState();
+  const [filteritems, setFilterItems] = useState({
+    location: "Search destination",
+    checkin: "Add dates",
+    checkout: "Add dates",
+    guests: "Add guests",
+  });
 
+  const FilterItemsHandler = (key, value) => {
+    setFilterItems((prevItems) => {
+      return {
+        ...prevItems,
+        [key]: value,
+      };
+    });
+  };
+  const tabs = [];
   return (
     <div className="expandable-container">
       <div className="expandablenav">
@@ -56,27 +74,28 @@ const ExpandableFilters = ({}) => {
         ))}
       </div>
       <div className="expandablenavOptions">
-        <Locationstab
-          hoverItem={hoverItem}
-          setActiveSelect={setActiveSelect}
-          leavehover={leavehover}
-          activeSelect={activeSelect}
-        />
-        <span
-          className="border"
-          style={{
-            display: `${
-              hoverEl === "location" ||
-              hoverEl === "checkin" ||
-              activeSelect === "location" ||
-              activeSelect === "checkin"
-                ? "none"
-                : ""
-            }`,
+        <div
+          className="expandabletab"
+          onMouseOver={hoverItem}
+          onClick={() => {
+            setActiveSelect("location");
+            setShow(!showItems);
           }}
-        ></span>
+          onMouseLeave={leavehover}
+          style={{
+            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
+          }}
+        >
+          Where
+          <span>{filteritems.location}</span>
+          {activeSelect === "location" && showItems ? (
+            <Locationstab FilterItemsHandler={FilterItemsHandler} />
+          ) : (
+            ""
+          )}
+        </div>
 
-        <Checkin
+        {/* <Checkin
           hoverItem={hoverItem}
           setActiveSelect={setActiveSelect}
           leavehover={leavehover}
@@ -85,19 +104,6 @@ const ExpandableFilters = ({}) => {
           setDate={setDate}
           startDate={startDate}
         />
-        <span
-          className="border"
-          style={{
-            display: `${
-              hoverEl === "checkin" ||
-              hoverEl === "checkout" ||
-              activeSelect === "checkout" ||
-              activeSelect === "checkin"
-                ? "none"
-                : ""
-            }`,
-          }}
-        ></span>
 
         <Checkout
           hoverItem={hoverItem}
@@ -108,19 +114,6 @@ const ExpandableFilters = ({}) => {
           setDate={setDate}
           endDate={endDate}
         />
-        <span
-          className="border"
-          style={{
-            display: `${
-              hoverEl === "checkout" ||
-              hoverEl === "guest" ||
-              activeSelect === "checkout" ||
-              activeSelect === "guest"
-                ? "none"
-                : ""
-            }`,
-          }}
-        ></span>
 
         <Guestopt
           hoverItem={hoverItem}
@@ -128,6 +121,11 @@ const ExpandableFilters = ({}) => {
           leavehover={leavehover}
           activeSelect={activeSelect}
         />
+      </div>{" "}
+      <button className="searchIcon">
+        <BiSearch />
+        {showItems ? "Search" : ""}
+      </button> */}
       </div>
     </div>
   );

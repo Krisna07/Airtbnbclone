@@ -1,12 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Locationstab = ({
-  hoverItem,
-  setActiveSelect,
-  leavehover,
-  activeSelect,
-}) => {
+const Locationstab = ({ activeSelect, FilterItemsHandler }) => {
   const [location, setLocation] = useState("Search destination");
   const mapItems = [
     {
@@ -42,45 +37,23 @@ const Locationstab = ({
   ];
   const [showItems, setShow] = useState();
   return (
-    <div
-      className="opt location"
-      onMouseOver={hoverItem}
-      onClick={() => {
-        setActiveSelect("location");
-        setShow(!showItems);
-      }}
-      onMouseLeave={leavehover}
-      style={{
-        backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
-      }}
-    >
-      Where
-      <span>{location}</span>
-      <div
-        className="loactionOpts"
-        style={{
-          display: `${
-            activeSelect === "location" && showItems ? "flex" : "none"
-          }`,
-        }}
-      >
-        <div className="opttitle">
-          <h2>Search by region</h2>
-        </div>
-        <div className="mapItems">
-          {mapItems.map((items, x) => (
-            <div
-              className="map-box"
-              key={x}
-              onClick={() => setLocation(items.title)}
-            >
-              <div className="img-container">
-                <img src={items.imgsrc} alt="" />
-              </div>
-              <span style={{ color: "black" }}>{items.title}</span>
+    <div className="loactionOpts">
+      <div className="opttitle">
+        <h2>Search by region</h2>
+      </div>
+      <div className="mapItems">
+        {mapItems.map((items, x) => (
+          <div
+            className="map-box"
+            key={x}
+            onClick={() => FilterItemsHandler("location", items.title)}
+          >
+            <div className="img-container">
+              <img src={items.imgsrc} alt="" />
             </div>
-          ))}
-        </div>
+            <span style={{ color: "black" }}>{items.title}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

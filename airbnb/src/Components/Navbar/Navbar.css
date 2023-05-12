@@ -151,6 +151,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  position: relative;
 }
 .expandablenav {
   display: flex;
@@ -181,12 +182,14 @@
   align-items: center;
   background-color: rgba(199, 199, 199, 0.382);
   border-radius: 30px;
-  padding: 8px;
+
   box-sizing: border-box;
   /* overflow: hidden; */
   box-shadow: rgba(99, 99, 99, 0.2) 1px 2px 8px 4px;
+  position: relative;
 }
-.expandablenavOptions .opt {
+
+.expandabletab {
   width: fit-content;
   padding: 1rem 2rem;
   line-height: 10px;
@@ -197,9 +200,8 @@
   gap: 10px;
   position: relative;
   border-radius: 30px;
-
-  /* background-color: aquamarine; */
 }
+
 .border {
   background: rgb(158, 158, 158);
   width: 0.5px;
@@ -224,13 +226,13 @@
 }
 
 .searchIcon {
+  width: fit-content;
   padding: 15px;
   border-radius: 40px;
   background-color: #bd1e59;
   position: absolute;
   right: 5px;
-  /* top: 5px; */
-  /* top: 0; */
+  bottom: 5px;
   color: white;
   transition: all ease 200ms;
   border: none;
