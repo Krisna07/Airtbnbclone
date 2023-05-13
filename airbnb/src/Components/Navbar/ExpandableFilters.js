@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 
-import Locationstab from "./Locationstab";
-import Checkin from "./Checkin";
-import { Checkout } from "./Checkout";
-import Guestopt from "./Guestopt";
-import { RiAddFill, RiSubtractFill } from "react-icons/ri";
 import { BiSearch } from "react-icons/bi";
+import Checkin from "./Navcomponents/Checkin";
+import { Checkout } from "./Navcomponents/Checkout";
+import Guestopt from "./Navcomponents/Guestopt";
+import Locationstab from "./Navcomponents/Locationstab";
+import "./Expandable.css";
 
 const ExpandableFilters = ({}) => {
   const [activenav, setActivenav] = useState("Stays");
-  let startDate;
-  let endDate;
-  const [date, setDate] = useState([
-    {
-      startDate: null,
-      endDate: null,
-      key: "selection",
-    },
-  ]);
+
+  const [date, setDate] = useState({
+    startDate: null,
+    endDate: null,
+    key: "selection",
+  });
 
   const [hoverEl, setHoverEl] = useState("");
   const [activeSelect, setActiveSelect] = useState("location");
@@ -25,8 +22,13 @@ const ExpandableFilters = ({}) => {
   const selectMenu = (e) => {
     setActivenav(e.target.innerHTML);
   };
-  const selectedOpt = (e) => {
-    setActiveSelect(e.target.classList[1]);
+
+  const selectedOpt = (item) => {
+    setActiveSelect(item);
+    if (item === activeSelect) {
+      setActiveSelect("");
+    }
+    console.log(activeSelect);
   };
   const hoverItem = (e) => {
     setHoverEl(e.target.classList[1]);
@@ -35,10 +37,15 @@ const ExpandableFilters = ({}) => {
     setHoverEl("");
   };
   //setting up dates for calender
-  startDate = date[0].startDate
-    ? date[0].startDate.toDateString()
-    : "Choose date";
-  endDate = date[0].endDate ? date[0].endDate.toDateString() : "Choose date";
+  const dateHandler = (key, value) => {
+    setDate((items) => {
+      return {
+        ...items,
+        [key]: value,
+      };
+    });
+  };
+  const [calender, setCalender] = useState(false);
   const [showItems, setShow] = useState();
   const [filteritems, setFilterItems] = useState({
     location: "Search destination",
@@ -46,7 +53,10 @@ const ExpandableFilters = ({}) => {
     checkout: "Add dates",
     guests: "Add guests",
   });
-
+  const calenderHandler = () => {
+    setCalender(!calender);
+    console.log(calender);
+  };
   const FilterItemsHandler = (key, value) => {
     setFilterItems((prevItems) => {
       return {
@@ -55,7 +65,7 @@ const ExpandableFilters = ({}) => {
       };
     });
   };
-  const tabs = [];
+
   return (
     <div className="expandable-container">
       <div className="expandablenav">
@@ -78,114 +88,58 @@ const ExpandableFilters = ({}) => {
           className="expandabletab"
           onMouseOver={hoverItem}
           onClick={() => {
-            setActiveSelect("location");
+            selectedOpt("location");
             setShow(!showItems);
           }}
           onMouseLeave={leavehover}
           style={{
-            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
+            backgroundColor: `${activeSelect == "location" ? "white" : ""}`,
           }}
         >
           Where
           <span>{filteritems.location}</span>
-          {activeSelect === "location" && showItems ? (
+          {activeSelect === "location" ? (
             <Locationstab FilterItemsHandler={FilterItemsHandler} />
           ) : (
             ""
           )}
         </div>
-        <div
-          className="expandabletab"
-          onMouseOver={hoverItem}
-          onClick={() => {
-            setActiveSelect("location");
-            setShow(!showItems);
-          }}
-          onMouseLeave={leavehover}
-          style={{
-            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
-          }}
-        >
-          Where
-          <span>{filteritems.location}</span>
-          {activeSelect === "location" && showItems ? (
-            <Locationstab FilterItemsHandler={FilterItemsHandler} />
-          ) : (
-            ""
-          )}
-        </div>{" "}
-        <div
-          className="expandabletab"
-          onMouseOver={hoverItem}
-          onClick={() => {
-            setActiveSelect("location");
-            setShow(!showItems);
-          }}
-          onMouseLeave={leavehover}
-          style={{
-            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
-          }}
-        >
-          Where
-          <span>{filteritems.location}</span>
-          {activeSelect === "location" && showItems ? (
-            <Locationstab FilterItemsHandler={FilterItemsHandler} />
-          ) : (
-            ""
-          )}
-        </div>{" "}
-        <div
-          className="expandabletab"
-          onMouseOver={hoverItem}
-          onClick={() => {
-            setActiveSelect("location");
-            setShow(!showItems);
-          }}
-          onMouseLeave={leavehover}
-          style={{
-            backgroundColor: `${activeSelect === "location" ? "white" : ""}`,
-          }}
-        >
-          Where
-          <span>{filteritems.location}</span>
-          {activeSelect === "location" && showItems ? (
-            <Locationstab FilterItemsHandler={FilterItemsHandler} />
-          ) : (
-            ""
-          )}
-        </div>
-        {/* <Checkin
-          hoverItem={hoverItem}
+
+        <Checkin
           setActiveSelect={setActiveSelect}
-          leavehover={leavehover}
           activeSelect={activeSelect}
           date={date}
-          setDate={setDate}
-          startDate={startDate}
+          dateHandler={dateHandler}
+          startDate={date.startDate}
+          calenderHandler={calenderHandler}
+          calender={calender}
+          selectedOpt={selectedOpt}
         />
-
         <Checkout
-          hoverItem={hoverItem}
-          setActiveSelect={setActiveSelect}
-          leavehover={leavehover}
           activeSelect={activeSelect}
           date={date}
-          setDate={setDate}
-          endDate={endDate}
+          dateHandler={dateHandler}
+          endDate={date.endDate}
+          calenderHandler={calenderHandler}
+          calender={calender}
+          selectedOpt={selectedOpt}
         />
-
-        <Guestopt
-          hoverItem={hoverItem}
-          setActiveSelect={setActiveSelect}
-          leavehover={leavehover}
-          activeSelect={activeSelect}
-        />
-      </div>{" "}
+        <div
+          className="expandabletab guests"
+          onClick={() => {
+            selectedOpt("guests");
+          }}
+          style={{
+            backgroundColor: `${activeSelect === "guests" ? "white" : ""}`,
+          }}
+        >
+          <Guestopt selectedOpt={selectedOpt} activeSelect={activeSelect} />
+        </div>
+      </div>
       <button className="searchIcon">
         <BiSearch />
         {showItems ? "Search" : ""}
-      </button> */}
-      </div>
+      </button>
     </div>
   );
 };

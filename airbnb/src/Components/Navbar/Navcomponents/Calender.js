@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { DateRange } from "react-date-range";
 import { DateRangePicker } from "react-date-range";
 
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 const Calender = ({ date, setDate }) => {
   return (
     <DateRange

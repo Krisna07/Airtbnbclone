@@ -1,6 +1,6 @@
 import { React } from "react";
 import Button from "../Button/Button";
-import Guestopt from "../Navbar/Guestopt";
+import Guestopt from "../Navbar/Navcomponents/Guestopt";
 
 export default function BookingCard({ price }) {
   return (

@@ -86,6 +86,7 @@
   gap: 4px;
   padding: 0 2rem;
   position: relative;
+  background-color: white;
 }
 .profiletext {
   /* font-size: 15px; */
@@ -109,6 +110,7 @@
   align-items: center;
   gap: 8px;
   border: 2px solid rgb(224, 223, 223);
+
   border-radius: 30px;
   color: black;
 }
@@ -124,10 +126,11 @@
   position: absolute;
   right: 0;
   top: 100%;
-  background-color: rgb(255, 255, 255);
+  z-index: 999;
   box-shadow: rgba(99, 99, 99, 0.2) 1px 2px 8px 4px;
   padding: 10px 0;
   border-radius: 10px;
+  background-color: white;
 }
 .userActions li {
   /* width: 100%; */
@@ -144,262 +147,8 @@
 .userActions li:hover {
   background: rgba(199, 199, 199, 0.2);
 }
+
 /* all the expandable conatiners items are styled here */
-.expandable-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  position: relative;
-}
-.expandablenav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.expandablenav .menus {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 0;
-  position: relative;
-  border-bottom: 2px solid rgba(0, 0, 0, 0);
-  /* color: black; */
-}
-
-.expandablenav .menus:hover {
-  color: gray;
-  border-bottom: 2px solid rgba(199, 199, 199);
-}
-.expandablenav .menus:focus {
-  border-bottom: 2px solid gray;
-}
-.expandablenavOptions {
-  display: flex;
-  align-items: center;
-  background-color: rgba(199, 199, 199, 0.382);
-  border-radius: 30px;
-
-  box-sizing: border-box;
-  /* overflow: hidden; */
-  box-shadow: rgba(99, 99, 99, 0.2) 1px 2px 8px 4px;
-  position: relative;
-}
-
-.expandabletab {
-  width: fit-content;
-  padding: 1rem 2rem;
-  line-height: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 10px;
-  position: relative;
-  border-radius: 30px;
-}
-
-.border {
-  background: rgb(158, 158, 158);
-  width: 0.5px;
-  height: 20px;
-}
-
-.opt:first-child {
-  width: 200px;
-}
-.opt span {
-  color: rgba(150, 150, 150);
-}
-.opt:last-child {
-  width: 200px;
-}
-.opt:hover {
-  background: rgb(190, 190, 190);
-  border-radius: 30px;
-}
-.border:first-child {
-  background-color: #bd1e59 !important;
-}
-
-.searchIcon {
-  width: fit-content;
-  padding: 15px;
-  border-radius: 40px;
-  background-color: #bd1e59;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  color: white;
-  transition: all ease 200ms;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 20px;
-  line-height: 20px;
-  /* right: -10px; */
-}
-.searchIcon::after {
-  color: black;
-}
-.loactionOpts {
-  /* width: ; */
-  position: absolute;
-  top: 80px;
-  left: 0;
-  background: white;
-  padding: 1rem 3rem;
-  border-radius: 3rem;
-  line-height: 30px;
-
-  box-shadow: rgba(99, 99, 99, 0.2) 1px 2px 8px 4px;
-  /* display: flex; */
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  z-index: 999;
-}
-.mapItems {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-}
-.map-box {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.img-container {
-  width: 120px;
-  height: 120px;
-  transition: all ease-in-out 300ms;
-  position: relative;
-  /* gap: 10px; */
-  /* border-radius: 20px; */
-}
-.img-container img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  border: 1.5px solid rgba(199, 199, 199);
-}
-
-.img-container img:hover {
-  border: 1.5px solid black;
-}
-.checkin .loactionOpts {
-  left: -200%;
-  justify-content: center;
-}
-.dateOpt {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  line-height: 20px;
-  justify-content: center;
-  padding: 4px;
-  border-radius: 30px;
-}
-
-.dateOpt-nav {
-  width: fit-content;
-  /* display: flex; */
-  padding: 4px 10px;
-  display: inline-block;
-  background-color: bisque;
-}
-.twinCalender {
-  display: flex;
-  gap: 2rem;
-  position: relative;
-  align-items: center;
-}
-.rdrDateRangeWrapper {
-  display: relative !important;
-  width: 100%;
-}
-.rdrDateDisplayWrapper {
-  display: none !important;
-  position: relative;
-}
-.rdrMonthAndYearPickers {
-  display: none !important;
-}
-.rdrMonthAndYearWrapper {
-  position: absolute;
-  width: 100%;
-  top: -5px;
-  padding: 0 !important;
-}
-.rdrMonthName {
-  text-align: center !important;
-}
-.rdrWeekDays {
-  color: black !important;
-}
-.rdrWeekDay {
-  font-weight: bold !important;
-  color: black;
-}
-
-.rdrMonthsHorizontal {
-  gap: 2rem !important;
-}
-.gueststabs {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  line-height: 20px;
-  gap: 2rem;
-  padding: 1rem 0;
-  border-bottom: 1.5px solid rgb(218, 218, 218);
-}
-.gueststabs:last-child {
-  border: none;
-}
-.guestType {
-  width: 200px;
-  display: inline;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.guestType-heading {
-  font-size: 20px;
-  color: black !important;
-  font-weight: bold;
-}
-.guestCount {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.guestnum {
-  padding: 10px;
-  font-size: 14px;
-  background: rgb(114, 114, 114);
-  color: white;
-  border-radius: 50%;
-}
-.chngBtn {
-  border: none;
-  display: flex;
-  align-items: center;
-  background: none;
-}
-/* styling of expandables ends here */
-/* 
-
-
 
 */
 /* filter box stylings */

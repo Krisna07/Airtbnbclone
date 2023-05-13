@@ -5,13 +5,7 @@ import { RiAddFill, RiSubtractFill } from "react-icons/ri";
 
 // import Increasingnumber from "./Increasingnumber";
 
-const Guestopt = ({
-  hoverItem,
-  setActiveSelect,
-  leavehover,
-  activeSelect,
-  hideExpandable,
-}) => {
+const Guestopt = ({ selectedOpt, activeSelect }) => {
   // Declare an array of guests with their details
   const [guests, setGuests] = useState([
     {
@@ -55,17 +49,7 @@ const Guestopt = ({
   };
 
   return (
-    <div
-      className="opt guests"
-      onClick={() => {
-        setActiveSelect("guests");
-      }}
-      onMouseOver={hoverItem}
-      onMouseLeave={leavehover}
-      style={{
-        backgroundColor: `${activeSelect === "guests" ? "white" : ""}`,
-      }}
-    >
+    <>
       <div
         style={{
           width: "100%",
@@ -80,7 +64,6 @@ const Guestopt = ({
           </span>
         </div>
       </div>
-
       <div
         className="loactionOpts"
         style={{
@@ -111,7 +94,7 @@ const Guestopt = ({
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

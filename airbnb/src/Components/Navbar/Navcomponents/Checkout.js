@@ -7,17 +7,22 @@ export const Checkout = ({
   leavehover,
   activeSelect,
   date,
-  setDate,
+  dateHandler,
   endDate,
+  calenderHandler,
+  calender,
+  selectedOpt,
 }) => {
-  const [showItems, setShow] = useState();
   return (
     <div
-      className="opt checkout"
+      className="expandabletab checkout"
       onMouseOver={hoverItem}
-      onClick={() => {
-        setActiveSelect("checkout");
-        setShow(!showItems);
+      onClick={(e) => {
+        selectedOpt("checkout");
+        if (!calender) {
+          calenderHandler();
+        }
+        calenderHandler();
       }}
       onMouseLeave={leavehover}
       style={{
@@ -34,11 +39,14 @@ export const Checkout = ({
       >
         <div style={{ display: "grid", gap: "10px" }}>
           Check out
-          <span>{endDate}</span>
+          <span>{endDate ? endDate : "Choose date"}</span>
         </div>
-        {date[0].startDate && activeSelect === "checkout" ? (
+        {endDate ? (
           <span className="removeStart remove-date">
-            <RiCloseFill color="red" />
+            <RiCloseFill
+              color="red"
+              onClick={() => dateHandler("endDate", null)}
+            />
           </span>
         ) : (
           ""

@@ -6,9 +6,9 @@ import { FaChevronLeft, FaChevronRight, FaUserCircle } from "react-icons/fa";
 
 import { BiGlobe, BiSearch } from "react-icons/bi";
 import ExpandableFilters from "./ExpandableFilters";
-import Features from "./Features";
 
 import { RiFilter3Line } from "react-icons/ri";
+import Features from "./Navcomponents/Features";
 
 const Navbar = ({ updateFeatures, updateProperty }) => {
   const [actions, setActions] = useState(false);
