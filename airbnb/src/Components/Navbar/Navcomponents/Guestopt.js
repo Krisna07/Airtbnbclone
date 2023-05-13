@@ -57,7 +57,7 @@ const Guestopt = ({ selectedOpt, activeSelect }) => {
           alignItems: "center",
         }}
       >
-        <div className="titleGuests" style={{ display: "grid", gap: "10px" }}>
+        <div className="expandabletabselect">
           Guests
           <span>
             {total} {"Guests"}

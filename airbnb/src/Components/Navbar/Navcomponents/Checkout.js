@@ -37,7 +37,7 @@ export const Checkout = ({
           alignItems: "center",
         }}
       >
-        <div style={{ display: "grid", gap: "10px" }}>
+        <div className="expandabletabselect">
           Check out
           <span>{endDate ? endDate : "Choose date"}</span>
         </div>

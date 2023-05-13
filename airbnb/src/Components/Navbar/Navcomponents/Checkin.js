@@ -6,45 +6,47 @@ import Calender from "./Calender";
 
 const Checkin = ({
   hoverItem,
-  setActiveSelect,
+
   leavehover,
   activeSelect,
   date,
   dateHandler,
   startDate,
   calenderHandler,
-  calender,
+
   selectedOpt,
 }) => {
   const [checkDate, setCheckDate] = useState();
-  // useEffect(() => {
-  //   startDate !== "choose date" ? setCheckDate(startDate.toDateString()) : "";
-  // });
+
   return (
     <div
       className="expandabletab checkin"
-      onClick={(e) => {
-        selectedOpt("checkin");
-        calenderHandler();
-      }}
       onMouseOver={hoverItem}
       onMouseLeave={leavehover}
       style={{
         backgroundColor: `${activeSelect === "checkin" ? "white" : ""}`,
       }}
     >
-      Check in
-      <span>{startDate ? startDate : "Choose date"}</span>
-      {startDate ? (
-        <RiCloseFill
-          color="red"
-          onClick={() => {
-            dateHandler("StartDate", null);
-          }}
-        />
-      ) : (
-        ""
-      )}
+      <div
+        onClick={(e) => {
+          selectedOpt("checkin");
+          calenderHandler();
+        }}
+        className="expandabletabselect"
+      >
+        Check in
+        <span>{startDate ? startDate : "Choose date"}</span>
+        {startDate ? (
+          <RiCloseFill
+            color="red"
+            onClick={() => {
+              dateHandler("StartDate", null);
+            }}
+          />
+        ) : (
+          ""
+        )}
+      </div>
       {activeSelect === "checkin" || activeSelect === "checkout" ? (
         <div
           className="loactionOpts"
@@ -57,7 +59,7 @@ const Checkin = ({
             <div className="dateOpt-nav">I am felxible</div>
           </div>
           <div className="twinCalender">
-            <Calender />
+            <Calender date={date} dateHandler={dateHandler} />
           </div>
         </div>
       ) : (

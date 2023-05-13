@@ -16,7 +16,6 @@ const ExpandableFilters = ({}) => {
     key: "selection",
   });
 
-  const [hoverEl, setHoverEl] = useState("");
   const [activeSelect, setActiveSelect] = useState("location");
   const expandablemenu = ["Stays", "Experiences", "Online Experiences"];
   const selectMenu = (e) => {
@@ -30,13 +29,7 @@ const ExpandableFilters = ({}) => {
     }
     console.log(activeSelect);
   };
-  const hoverItem = (e) => {
-    setHoverEl(e.target.classList[1]);
-  };
-  const leavehover = () => {
-    setHoverEl("");
-  };
-  //setting up dates for calender
+
   const dateHandler = (key, value) => {
     setDate((items) => {
       return {
@@ -86,18 +79,20 @@ const ExpandableFilters = ({}) => {
       <div className="expandablenavOptions">
         <div
           className="expandabletab"
-          onMouseOver={hoverItem}
-          onClick={() => {
-            selectedOpt("location");
-            setShow(!showItems);
-          }}
-          onMouseLeave={leavehover}
           style={{
             backgroundColor: `${activeSelect == "location" ? "white" : ""}`,
           }}
         >
-          Where
-          <span>{filteritems.location}</span>
+          <div
+            className="expandabletabselect"
+            onClick={() => {
+              selectedOpt("location");
+              setShow(!showItems);
+            }}
+          >
+            Where
+            <span>{filteritems.location}</span>
+          </div>
           {activeSelect === "location" ? (
             <Locationstab FilterItemsHandler={FilterItemsHandler} />
           ) : (
