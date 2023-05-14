@@ -12,6 +12,7 @@ const Calender = ({ date, setDate }) => {
   console.log(date);
   const handleRangeConfirm = (ranges) => {
     setLocalDate(ranges.selection);
+    setDate([localDate]);
     console.log(localDate);
     // dateHandler("startDate", localDate.startDate);
     // dateHandler("endDate", localDate.endDate);
@@ -19,7 +20,7 @@ const Calender = ({ date, setDate }) => {
 
   return (
     <DateRange
-      onChange={(item) => setDate(item.selection)}
+      onChange={handleRangeConfirm}
       showSelectionPreview={true}
       moveRangeOnFirstSelection={false}
       minDate={new Date()}
