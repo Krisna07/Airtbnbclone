@@ -6,15 +6,14 @@ import Calender from "./Calender";
 
 const Checkin = ({
   hoverItem,
-
   leavehover,
   activeSelect,
   date,
   dateHandler,
   startDate,
   calenderHandler,
-
   selectedOpt,
+  setDate,
 }) => {
   const [checkDate, setCheckDate] = useState();
 
@@ -59,7 +58,7 @@ const Checkin = ({
             <div className="dateOpt-nav">I am felxible</div>
           </div>
           <div className="twinCalender">
-            <Calender date={date} dateHandler={dateHandler} />
+            <Calender date={date} dateHandler={dateHandler} setDate={setDate} />
           </div>
         </div>
       ) : (
