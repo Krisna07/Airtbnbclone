@@ -160,7 +160,8 @@
   /* display: flex; */
   padding: 4px 10px;
   display: inline-block;
-  background-color: bisque;
+  box-shadow: 0 0 2px 0 gray;
+  border-radius: 10px;
 }
 .twinCalender {
   display: flex;
