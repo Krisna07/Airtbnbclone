@@ -8,7 +8,7 @@ export const Checkout = ({
   activeSelect,
   date,
   dateHandler,
-  endDate,
+
   calenderHandler,
   calender,
   selectedOpt,
@@ -39,9 +39,11 @@ export const Checkout = ({
       >
         <div className="expandabletabselect">
           Check out
-          <span>{endDate ? endDate : "Choose date"}</span>
+          <span>
+            {date.endDate ? date.endDate.toLocaleDateString() : "Choose date"}
+          </span>
         </div>
-        {endDate ? (
+        {date.endDate ? (
           <span className="removeStart remove-date">
             <RiCloseFill
               color="red"
