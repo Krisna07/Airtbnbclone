@@ -106,7 +106,6 @@ const ExpandableFilters = ({}) => {
           date={date}
           dateHandler={dateHandler}
           setDate={setDate}
-          startDate={date.startDate}
           calenderHandler={calenderHandler}
           calender={calender}
           selectedOpt={selectedOpt}
@@ -115,7 +114,6 @@ const ExpandableFilters = ({}) => {
           activeSelect={activeSelect}
           date={date}
           dateHandler={dateHandler}
-          endDate={date.endDate}
           calenderHandler={calenderHandler}
           calender={calender}
           selectedOpt={selectedOpt}

@@ -10,13 +10,11 @@ const Checkin = ({
   activeSelect,
   date,
   dateHandler,
-  startDate,
   calenderHandler,
   selectedOpt,
   setDate,
 }) => {
-  const [checkDate, setCheckDate] = useState();
-  console.log(startDate);
+  console.log(date.startDate);
 
   return (
     <div
@@ -35,12 +33,14 @@ const Checkin = ({
         className="expandabletabselect"
       >
         Check in
-        <span>{startDate ? startDate : "Choose date"}</span>
-        {startDate ? (
+        <span>
+          {date.startDate ? date.startDate.toLocaleDateString() : "Choose date"}
+        </span>
+        {date.startDate ? (
           <RiCloseFill
             color="red"
             onClick={() => {
-              dateHandler("StartDate", null);
+              dateHandler("startDate", null);
             }}
           />
         ) : (
@@ -59,7 +59,7 @@ const Checkin = ({
             <div className="dateOpt-nav">I am felxible</div>
           </div>
           <div className="twinCalender">
-            <Calender date={date} dateHandler={dateHandler} setDate={setDate} />
+            <Calender date={date} setDate={setDate} />
           </div>
         </div>
       ) : (
