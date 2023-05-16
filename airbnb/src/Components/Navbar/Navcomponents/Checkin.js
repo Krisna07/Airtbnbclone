@@ -16,6 +16,7 @@ const Checkin = ({
   setDate,
 }) => {
   const [checkDate, setCheckDate] = useState();
+  console.log(startDate);
 
   return (
     <div
