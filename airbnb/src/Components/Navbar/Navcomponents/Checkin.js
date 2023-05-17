@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import Calender from "./Calender";
+import MonthSelector from "./Monthselector";
 
 const Checkin = ({
   hoverItem,
@@ -16,6 +17,8 @@ const Checkin = ({
 }) => {
   console.log(date.startDate);
 
+  const [dateSelector, setDateSelector] = useState("date");
+  const dateSelectorsType = ["Date", "Month", "Flexible"];
   return (
     <div
       className="expandabletab checkin"
@@ -26,27 +29,42 @@ const Checkin = ({
       }}
     >
       <div
-        onClick={(e) => {
-          selectedOpt("checkin");
-          calenderHandler();
+        style={{
+          display: "flex",
+          gap: "10px",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
-        className="expandabletabselect"
       >
-        Check in
-        <span>
-          {date.startDate ? date.startDate.toLocaleDateString() : "Choose date"}
-        </span>
+        <div
+          onClick={(e) => {
+            selectedOpt("checkin");
+            calenderHandler();
+          }}
+          className="expandabletabselect"
+        >
+          Check in
+          <span>
+            {date.startDate
+              ? date.startDate.toLocaleDateString()
+              : "Choose date"}
+          </span>
+        </div>
         {date.startDate ? (
-          <RiCloseFill
-            color="red"
-            onClick={() => {
-              dateHandler("startDate", null);
-            }}
-          />
+          <span className="removeStart remove-date">
+            {" "}
+            <RiCloseFill
+              color="red"
+              onClick={() => {
+                dateHandler("startDate", null);
+              }}
+            />
+          </span>
         ) : (
           ""
         )}
       </div>
+
       {activeSelect === "checkin" || activeSelect === "checkout" ? (
         <div
           className="loactionOpts"
@@ -55,11 +73,30 @@ const Checkin = ({
           }}
         >
           <div className="dateOpt">
-            <div className="dateOpt-nav">Choose dates</div>
-            <div className="dateOpt-nav">I am felxible</div>
+            {dateSelectorsType.map((selector, x) => (
+              <div
+                className={`dateOpt-nav ${
+                  selector === dateSelector ? `active` : ""
+                }`}
+                key={x}
+                onClick={() => setDateSelector(selector)}
+              >
+                {selector}
+              </div>
+            ))}
           </div>
           <div className="twinCalender">
-            <Calender date={date} setDate={setDate} />
+            {dateSelector == "Date" ? (
+              <Calender date={date} setDate={setDate} />
+            ) : (
+              ""
+            )}
+            {dateSelector == "Month" ? <MonthSelector /> : ""}
+            {dateSelector == "Flexible" ? (
+              <Calender date={date} setDate={setDate} />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       ) : (
