@@ -254,3 +254,38 @@
   align-items: center;
   background: none;
 }
+
+/* month selector */
+
+.largeCircle {
+  /* border-radius: 50%;
+  box-shadow: 0 0 4px 0 gray; */
+  /* padding: ; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.middleCircle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.middleCircle span {
+  font-size: 50px;
+  font-weight: bold;
+}
+.monthSelector {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.rangeSelector {
+  width: 100%;
+  position: absolute;
+}
