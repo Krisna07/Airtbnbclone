@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import Calender from "./Calender";
+import FlexibleDateSelector from "./FlexibledateSelector";
 import MonthSelector from "./Monthselector";
 
 const Checkin = ({
@@ -17,7 +18,7 @@ const Checkin = ({
 }) => {
   console.log(date.startDate);
 
-  const [dateSelector, setDateSelector] = useState("date");
+  const [dateSelector, setDateSelector] = useState("Date");
   const dateSelectorsType = ["Date", "Month", "Flexible"];
   return (
     <div
@@ -86,14 +87,18 @@ const Checkin = ({
             ))}
           </div>
           <div className="twinCalender">
-            {dateSelector == "Date" ? (
+            {dateSelector === "Date" ? (
               <Calender date={date} setDate={setDate} />
             ) : (
               ""
             )}
-            {dateSelector == "Month" ? <MonthSelector /> : ""}
-            {dateSelector == "Flexible" ? (
-              <Calender date={date} setDate={setDate} />
+            {dateSelector === "Month" ? (
+              <MonthSelector date={date} dateHandler={dateHandler} />
+            ) : (
+              ""
+            )}
+            {dateSelector === "Flexible" ? (
+              <FlexibleDateSelector date={date} setDate={setDate} />
             ) : (
               ""
             )}

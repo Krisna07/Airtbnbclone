@@ -1,8 +1,17 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { CircleSlider } from "react-circle-slider";
-const MonthSelector = () => {
+const MonthSelector = ({ date, dateHandler }) => {
   const [month, selectMonth] = useState(0);
+  const startDate = date.startDate ? date.startDate : new Date();
+  const displayDate = startDate.toDateString().split(" ");
+  const endDate = date.endDate ? date.endDate : new Date();
+  const SetEndDate = endDate.setMonth(month - 1);
+  useEffect(() => {
+    dateHandler("startDate", startDate);
+    dateHandler("endDate", endDate);
+  }, [month]);
 
   return (
     <div className="monthSelector">
@@ -27,7 +36,7 @@ const MonthSelector = () => {
         </div>
       </div>
       <span>
-        Starting 23 June.{" "}
+        Starting {displayDate[2]} {displayDate[1]}.{" "}
         <span style={{ fontWeight: "bold", textDecoration: "underline" }}>
           Edit
         </span>
