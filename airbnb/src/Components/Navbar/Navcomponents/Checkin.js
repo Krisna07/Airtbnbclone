@@ -16,8 +16,6 @@ const Checkin = ({
   selectedOpt,
   setDate,
 }) => {
-  console.log(date.startDate);
-
   const [dateSelector, setDateSelector] = useState("Date");
   const dateSelectorsType = ["Date", "Month", "Flexible"];
   return (

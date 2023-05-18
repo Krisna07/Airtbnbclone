@@ -9,7 +9,6 @@ const MonthSelector = ({ date, dateHandler }) => {
   const endDate = date.endDate ? date.endDate : new Date();
   const SetEndDate = endDate.setMonth(month - 1);
   useEffect(() => {
-    dateHandler("startDate", startDate);
     dateHandler("endDate", endDate);
   }, [month]);
 

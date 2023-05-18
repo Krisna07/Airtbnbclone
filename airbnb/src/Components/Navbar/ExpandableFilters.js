@@ -27,7 +27,6 @@ const ExpandableFilters = ({}) => {
     if (item === activeSelect) {
       setActiveSelect("");
     }
-    console.log(activeSelect);
   };
 
   const dateHandler = (key, value) => {
@@ -48,7 +47,6 @@ const ExpandableFilters = ({}) => {
   });
   const calenderHandler = () => {
     setCalender(!calender);
-    console.log(calender);
   };
   const FilterItemsHandler = (key, value) => {
     setFilterItems((prevItems) => {

@@ -10,7 +10,7 @@ const Calender = ({ date, setDate, dateHandler }) => {
     endDate: date.endDate ? date.endDate : new Date(),
     key: "selection",
   });
-  console.log(date);
+
   const handleRangeConfirm = (ranges) => {
     setDate(ranges.selection);
   };
