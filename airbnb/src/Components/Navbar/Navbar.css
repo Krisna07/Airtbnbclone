@@ -158,7 +158,6 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-
   box-sizing: border-box;
   padding: 1rem;
 }
@@ -206,7 +205,6 @@
   font-size: 30px;
 }
 .featureName {
-  /* min-width: fit-content; */
   font-weight: 600;
 }
 .slider {

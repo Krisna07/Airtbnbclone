@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Thumbnail.css";
-import {
-  FaAirbnb,
-  FaBed,
-  FaBuilding,
-  FaHeart,
-  FaRegHeart,
-  FaRegStar,
-  FaSearch,
-  FaStar,
-} from "react-icons/fa";
-import { image } from "rangen";
+import { FaAirbnb, FaBed, FaSearch, FaStar } from "react-icons/fa";
 
 const Thumbnail = ({ listing, updateProperty }) => {
   return (
@@ -22,8 +12,7 @@ const Thumbnail = ({ listing, updateProperty }) => {
             <div
               className="thumbnailsbody"
               key={property.fields.id}
-              onClick={() => updateProperty(property.fields)}
-            >
+              onClick={() => updateProperty(property.fields)}>
               <div className="imageconatiner">
                 <img
                   src={`${property.fields.medium_url}`}
@@ -34,8 +23,7 @@ const Thumbnail = ({ listing, updateProperty }) => {
                   <svg
                     className="favIcon"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                  >
+                    viewBox="0 0 24 24">
                     <path
                       d="M12 22.5l-9.75-9c-2.484-2.332-2.484-6.117 0-8.45s6.516-2.332 9-0.001c2.484-2.33 6.516-2.33 9 0 2.484 2.333 2.484 6.118 0 8.45l-9 8.5z"
                       stroke="#fff"

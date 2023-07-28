@@ -3,10 +3,8 @@ import "./Navbar.css";
 import { SiAirbnb } from "react-icons/si";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaChevronLeft, FaChevronRight, FaUserCircle } from "react-icons/fa";
-
 import { BiGlobe, BiSearch } from "react-icons/bi";
 import ExpandableFilters from "./ExpandableFilters";
-
 import { RiFilter3Line } from "react-icons/ri";
 import Features from "./Navcomponents/Features";
 
@@ -30,10 +28,15 @@ const Navbar = ({ updateFeatures, updateProperty }) => {
   }, []);
 
   return (
-    <div className="nav-container" onScroll={hideExpandable}>
+    <div
+      className="nav-container"
+      onScroll={hideExpandable}>
       <div className="nav-items">
         <div className="logo-box">
-          <SiAirbnb className="logo-icon" onClick={() => updateProperty("")} />{" "}
+          <SiAirbnb
+            className="logo-icon"
+            onClick={() => updateProperty("")}
+          />{" "}
           airbnb
         </div>
         {!filters ? (
@@ -41,8 +44,7 @@ const Navbar = ({ updateFeatures, updateProperty }) => {
             className="serach-box"
             onClick={(e) => {
               setFilters(!filters);
-            }}
-          >
+            }}>
             <div className="search-filters">
               <span>Anywhere</span>
               <span>Anytime</span>
@@ -66,15 +68,13 @@ const Navbar = ({ updateFeatures, updateProperty }) => {
             className="profileiconsmenu"
             onClick={() => {
               setActions(!actions);
-            }}
-          >
+            }}>
             <AiOutlineMenu />
             <FaUserCircle className="userIcon" />
           </div>
           <div
             className="userActions"
-            style={{ display: `${actions ? "block" : "none"}` }}
-          >
+            style={{ display: `${actions ? "block" : "none"}` }}>
             <li>Sign up</li>
             <li>Log in</li>
             <hr />
@@ -89,8 +89,7 @@ const Navbar = ({ updateFeatures, updateProperty }) => {
           <div
             className="featuresWrapper"
             style={{ right: `${moreIcons}px` }}
-            ref={featuresref}
-          >
+            ref={featuresref}>
             <Features updateFeatures={updateFeatures} />
           </div>
         </div>
