@@ -84,6 +84,7 @@ const Navbar = ({ updateFeatures, updateProperty }) => {
           </div>
         </div>
       </div>
+
       <div className="features">
         <div className="features-box">
           <div
@@ -104,7 +105,7 @@ const Navbar = ({ updateFeatures, updateProperty }) => {
           ) : (
             ""
           )}
-          {moreIcons < fwidth ? (
+          {moreIcons <= fwidth ? (
             <div className="slideEdge right">
               <FaChevronRight
                 className="sliderIcon "

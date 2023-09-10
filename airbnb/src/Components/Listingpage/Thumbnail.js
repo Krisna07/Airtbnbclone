@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import "./Thumbnail.css";
 import { FaAirbnb, FaBed, FaSearch, FaStar } from "react-icons/fa";
 
