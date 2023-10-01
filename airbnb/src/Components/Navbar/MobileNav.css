@@ -1,0 +1,30 @@
+@media (max-width: 600px) {
+  .logo-box {
+    display: none;
+  }
+  .nav-items {
+    flex-direction: column;
+    place-items: center;
+  }
+}
+@media (min-width: 600px) {
+  .nav-items {
+    display: grid;
+    grid-template-areas: "col1 col1 col2";
+    grid-template-columns: 60px 2fr 5fr;
+    gap: 10px;
+  }
+  .logo-box::after {
+    content: "";
+  }
+  /* .logo-box {
+    grid-area: col1;
+  }
+ 
+  .navSection {
+    grid-area: col1;
+  }
+  .profilebox {
+    grid-area: col2;
+  } */
+}

@@ -11,6 +11,7 @@ function App() {
   const [listing, setListing] = useState([]);
   const [property, setProperty] = useState();
   const [features, setFeatures] = useState("");
+  const [PropertyCount, setPropertyCount] = useState(40);
   const updateFeatures = (newFeatures) => {
     setFeatures(newFeatures);
   };
@@ -18,35 +19,38 @@ function App() {
     setProperty(property);
   };
   const options = {
-    loaction: "Australia",
+    location: "Australia",
     type: features,
   };
   useEffect(() => {
     const fetchpropertyDetails = async () => {
       try {
         const respoonse = await axios.get(
-          `https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-listings&q=&rows=20&start=0&${
+          `https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-listings&q=&rows=${PropertyCount}&start=0&${
             features ? `refine.property_type=${features}` : ""
-          }&refine.country=${options.loaction}`
+          }&refine.country=${options.location}`,
         );
         setListing(respoonse.data.records);
-        console.log(respoonse.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchpropertyDetails();
   }, [features]);
-  console.log(features);
+  console.log(listing);
   return (
     <div className="App">
-      <Navbar updateFeatures={updateFeatures} updateProperty={updateProperty} />
+      <Navbar updateProperty={updateProperty} />
       {property ? (
-        <Listing property={property} updateProperty={updateProperty} />
+        <Listing
+          property={property}
+          updateProperty={updateProperty}
+        />
       ) : (
         <Thumbnail
           listing={listing.length > 0 ? listing : []}
           updateProperty={updateProperty}
+          updateFeatures={updateFeatures}
         />
       )}
       <Footer />

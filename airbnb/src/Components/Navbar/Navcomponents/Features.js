@@ -75,8 +75,7 @@ const Features = ({ updateFeatures }) => {
         <div
           className="featureContainer"
           key={x}
-          onClick={() => updateFeatures(items.title)}
-        >
+          onClick={() => updateFeatures(items.title)}>
           <div className="featureIcon">{items.icon}</div>
           <div className="featureName">{items.title}</div>
         </div>

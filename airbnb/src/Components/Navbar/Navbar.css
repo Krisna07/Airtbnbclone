@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 99;
   /* padding: 1rem 0; */
@@ -15,8 +15,9 @@
 .nav-items {
   width: 100%;
   display: flex;
-  align-items: center;
+  place-items: center;
   justify-content: space-between;
+  gap: 8px;
   border-bottom: 2px solid rgb(224, 223, 223);
   padding: 1rem 0;
 }
@@ -25,12 +26,13 @@
   color: red;
   font-weight: 700;
   font-size: 20px;
-  /* line-height: 120%; */
   display: flex;
   align-items: center;
   gap: 4px;
   padding: 0 2rem;
-  /* background-color: aquamarine; */
+}
+.logo-box::after {
+  content: "airbnb";
 }
 .logo-icon {
   font-size: 30px;
@@ -38,7 +40,6 @@
 .serach-box {
   padding: 8px 0;
   border: 2px solid rgb(224, 223, 223);
-
   border-radius: 30px;
   display: flex;
 }
@@ -46,21 +47,22 @@
   box-shadow: rgba(99, 99, 99, 0.2) 1px 2px 8px 4px;
 }
 .search-filters {
-  width: 100%;
+  width: fit-content;
   display: flex;
   /* gap: 1rem; */
   cursor: pointer;
 }
 
 .search-filters span {
+  width: max-content;
   border-right: 1px solid rgb(199, 199, 199);
   padding: 0 1rem;
   font-size: 14px;
   font-weight: 600;
   line-height: 30px;
   text-align: center;
-  /* display: flex; */
   align-self: center;
+  display: inline-block;
 }
 .search-filters span:last-child {
   border: none;
@@ -148,24 +150,24 @@
   background: rgba(199, 199, 199, 0.2);
 }
 
-/* all the expandable conatiners items are styled here */
-
-*/
-/* filter box stylings */
 .features {
   width: 100%;
   display: flex;
   place-items: center;
+  justify-content: center;
   position: relative;
   padding: 1rem;
   overflow-x: hidden;
+  gap: 2rem;
+  box-sizing: border-box;
 }
 .features-box {
-  width: 1200px;
+  width: 1400px;
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
+  border-radius: 20px;
 }
 .featuresWrapper {
   width: 100%;
@@ -207,33 +209,34 @@
   font-weight: 600;
 }
 .slider {
-  width: 1200px;
+  width: 100%;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  bottom: 80px;
-  /* justify-content: space-between; */
+  background-color: #bd1e59;
 }
 .sliderIcon {
   position: relative;
-  padding: 0.5rem;
+  padding: 0.6rem;
   background-color: white;
   box-shadow: 0 0 2px 0 gray;
   border-radius: 50%;
 }
 .left {
-  left: -10px;
+  left: 0;
 }
 .right {
-  right: -10px;
+  right: 10px;
 }
+
 .filterBtn {
+  display: flex;
+  place-items: center;
+  gap: 8px;
   width: fit-content;
   padding: 10px 20px;
   box-shadow: 0px 0px 2px 0px gray;
-  /* position: absolute; */
   right: 0;
   border-radius: 5px;
 }
@@ -241,7 +244,6 @@
   position: absolute;
   width: 50px;
   height: 100px;
-
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.5);

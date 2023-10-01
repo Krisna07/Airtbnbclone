@@ -11,10 +11,38 @@ import { GiChefToque } from "react-icons/gi";
 import Button from "../Button/Button";
 import Listingcomp from "./listingcomp";
 import BookingCard from "./Bookingcard";
+
 export default function Listing({ property, updateProperty }) {
   console.log(property);
 
   const amenities = property.amenities.split(",");
+  function isValidImageUrl(url) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        resolve(true);
+      };
+      img.onerror = () => {
+        resolve(false);
+      };
+      img.src = url;
+    });
+  }
+
+  // Example usage
+  const imageUrl = property.xl_picture_url;
+
+  isValidImageUrl(imageUrl)
+    .then((isValid) => {
+      if (isValid) {
+        console.log("Image is valid and exists.");
+      } else {
+        console.log("Image is not valid or does not exist.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error checking image validity:", error);
+    });
 
   return (
     <div className="listingPage">
@@ -41,9 +69,20 @@ export default function Listing({ property, updateProperty }) {
         </div>
       </div>
       <div className="listingImage">
-        <img src={property.xl_picture_url} alt="propertyImage" width={"100%"} />
+        {property.xl_picture_url ? (
+          <img
+            src={property.xl_picture_url}
+            alt="propertyImage"
+            width={"100%"}
+          />
+        ) : (
+          ""
+        )}
         <div className="showAll">
-          <Button icon={<TbGridDots />} children={"Show all photos"} />
+          <Button
+            icon={<TbGridDots />}
+            children={"Show all photos"}
+          />
         </div>
       </div>
       <div className="lisitingDescriptions">
