@@ -36,8 +36,10 @@ function App() {
       }
     };
     fetchpropertyDetails();
-  }, [features]);
-  console.log(listing);
+  }, [features, PropertyCount]);
+  const updatePropertyCount = (count) => {
+    return setPropertyCount(PropertyCount + count);
+  };
   return (
     <div className="App">
       <Navbar updateProperty={updateProperty} />
@@ -51,6 +53,7 @@ function App() {
           listing={listing.length > 0 ? listing : []}
           updateProperty={updateProperty}
           updateFeatures={updateFeatures}
+          updatePropertyCount={updatePropertyCount}
         />
       )}
       <Footer />

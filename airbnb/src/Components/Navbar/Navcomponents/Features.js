@@ -68,14 +68,19 @@ const Features = ({ updateFeatures }) => {
     { title: "Igloo", icon: <GiIgloo /> },
     { title: "Van", icon: <FaCaravan /> },
   ];
-
+  const [active, setActive] = useState("Apartment");
   return (
     <>
       {features.map((items, x) => (
         <div
-          className="featureContainer"
+          className={`featureContainer ${
+            active == items.title ? "activeFeature" : ""
+          }`}
           key={x}
-          onClick={() => updateFeatures(items.title)}>
+          onClick={() => {
+            updateFeatures(items.title);
+            setActive(items.title);
+          }}>
           <div className="featureIcon">{items.icon}</div>
           <div className="featureName">{items.title}</div>
         </div>

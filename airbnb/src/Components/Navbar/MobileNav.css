@@ -6,25 +6,42 @@
     flex-direction: column;
     place-items: center;
   }
+  .filterBtn {
+    display: none;
+  }
+  .features-box {
+    overflow: scroll;
+  }
+  .slider {
+    display: none;
+  }
 }
-@media (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
   .nav-items {
     display: grid;
-    grid-template-areas: "col1 col1 col2";
-    grid-template-columns: 60px 2fr 5fr;
+    grid-template-areas: "col1 col2 col3";
+    grid-template-columns: 60px 2fr 2fr;
     gap: 10px;
+    box-sizing: border-box;
   }
   .logo-box::after {
     content: "";
   }
-  /* .logo-box {
+  .logo-box {
     grid-area: col1;
   }
- 
+
   .navSection {
-    grid-area: col1;
+    grid-area: col2;
   }
   .profilebox {
-    grid-area: col2;
-  } */
+    grid-area: col3;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background: none;
+  }
+  .filterBtn::after {
+    content: "";
+  }
 }

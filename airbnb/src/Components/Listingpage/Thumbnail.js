@@ -5,8 +5,14 @@ import Features from "../Navbar/Navcomponents/Features";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { RiFilter3Line } from "react-icons/ri";
 import { AiOutlinePlusCircle } from "react-icons/ai";
+import HosttImageContainer from "./HosttImageContainer";
 
-const Thumbnail = ({ listing, updateProperty, updateFeatures }) => {
+const Thumbnail = ({
+  listing,
+  updateProperty,
+  updateFeatures,
+  updatePropertyCount,
+}) => {
   const [validImages, setValidImages] = useState([]);
 
   useEffect(() => {
@@ -38,7 +44,7 @@ const Thumbnail = ({ listing, updateProperty, updateFeatures }) => {
   const listings = validImages.filter((valid) => {
     return valid.isValid;
   });
-  console.log(listings);
+
   const [moreIcons, setMoreIcons] = useState(0);
   const [fwidth, setFwidth] = useState(0);
   const moveRight = (action) => {
@@ -87,7 +93,7 @@ const Thumbnail = ({ listing, updateProperty, updateFeatures }) => {
         </div>
 
         <div className="filterBtn">
-          <RiFilter3Line /> Filter
+          <RiFilter3Line />
         </div>
       </div>
       <div className="thumbnailContainer">
@@ -119,20 +125,7 @@ const Thumbnail = ({ listing, updateProperty, updateFeatures }) => {
                       />
                     </svg>
                   </div>
-                  <div className="imagebookContainer">
-                    <div className="hostImage">
-                      {" "}
-                      <hr className="line" />
-                      <img
-                        src={`${
-                          listItem.property.fields.host_picture_url
-                            ? listItem.property.fields.host_picture_url
-                            : listItem.property.fields.host_thumbnail_url
-                        }`}
-                        alt=""
-                      />
-                    </div>
-                  </div>
+                  <HosttImageContainer property={listItem.property} />
                 </div>
                 <div className="thumbDes">
                   <div className="thumbtitle">
@@ -175,7 +168,9 @@ const Thumbnail = ({ listing, updateProperty, updateFeatures }) => {
           </div>
         )}
       </div>
-      <button className="filterBtn">
+      <button
+        className="filterBtn"
+        onClick={() => updatePropertyCount(20)}>
         More Listings <AiOutlinePlusCircle />
       </button>
     </div>
