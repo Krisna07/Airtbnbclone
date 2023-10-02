@@ -1,13 +1,10 @@
 import React from "react";
 
 import { AiOutlineHeart } from "react-icons/ai";
-
-import { FaDotCircle, FaPlane, FaSprayCan } from "react-icons/fa";
+import { FaDotCircle } from "react-icons/fa";
 import { TbGridDots } from "react-icons/tb";
-
 import { MdOutlineIosShare, MdPolicy } from "react-icons/md";
 import "./listing.css";
-import { GiChefToque } from "react-icons/gi";
 import Button from "../Button/Button";
 import Listingcomp from "./listingcomp";
 import BookingCard from "./Bookingcard";

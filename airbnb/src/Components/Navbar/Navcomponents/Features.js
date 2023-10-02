@@ -13,7 +13,7 @@ import {
   GiTreehouse,
   GiWoodCabin,
 } from "react-icons/gi";
-import { RiBuilding2Line, RiBuildingLine, RiHotelLine } from "react-icons/ri";
+import { RiBuilding2Line, RiHotelLine } from "react-icons/ri";
 
 import {
   FaBed,
@@ -29,7 +29,6 @@ import {
   BiDotsHorizontal,
   BiHotel,
   BiTrain,
-  BiUnlink,
 } from "react-icons/bi";
 import { MdCabin } from "react-icons/md";
 import { useState } from "react";
@@ -74,7 +73,7 @@ const Features = ({ updateFeatures }) => {
       {features.map((items, x) => (
         <div
           className={`featureContainer ${
-            active == items.title ? "activeFeature" : ""
+            active === items.title ? "activeFeature" : ""
           }`}
           key={x}
           onClick={() => {
