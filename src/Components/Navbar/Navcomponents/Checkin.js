@@ -15,6 +15,7 @@ const Checkin = ({
   calenderHandler,
   selectedOpt,
   setDate,
+
 }) => {
   const [dateSelector, setDateSelector] = useState("Date");
   const dateSelectorsType = ["Date", "Month", "Flexible"];
@@ -51,7 +52,7 @@ const Checkin = ({
         </div>
         {date.startDate ? (
           <span className="removeStart remove-date">
-            {" "}
+        
             <RiCloseFill
               color="red"
               onClick={() => {

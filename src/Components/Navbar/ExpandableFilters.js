@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { BiSearch } from "react-icons/bi";
 import Checkin from "./Navcomponents/Checkin";
@@ -9,15 +9,24 @@ import "./Expandable.css";
 
 const ExpandableFilters = ({}) => {
   const [activenav, setActivenav] = useState("Stays");
-
+  const [activeSelect, setActiveSelect] = useState("location");
+  const expandablemenu = ["Stays", "Experiences", "Online Experiences"];
+  const [calender, setCalender] = useState(false);
+  const [showItems, setShow] = useState();
   const [date, setDate] = useState({
     startDate: null,
     endDate: null,
     key: "selection",
   });
 
-  const [activeSelect, setActiveSelect] = useState("location");
-  const expandablemenu = ["Stays", "Experiences", "Online Experiences"];
+  const [filteritems, setFilterItems] = useState({
+    location: "Search destination",
+    checkin: 'startDate',
+    checkout: 'endDate',
+    guests: "Add guests",
+  });
+
+ 
   const selectMenu = (e) => {
     setActivenav(e.target.innerHTML);
   };
@@ -28,26 +37,6 @@ const ExpandableFilters = ({}) => {
       setActiveSelect("");
     }
   };
-
-  const dateHandler = (key, value) => {
-    setDate((items) => {
-      return {
-        ...items,
-        [key]: value,
-      };
-    });
-  };
-  const [calender, setCalender] = useState(false);
-  const [showItems, setShow] = useState();
-  const [filteritems, setFilterItems] = useState({
-    location: "Search destination",
-    checkin: "Add dates",
-    checkout: "Add dates",
-    guests: "Add guests",
-  });
-  const calenderHandler = () => {
-    setCalender(!calender);
-  };
   const FilterItemsHandler = (key, value) => {
     setFilterItems((prevItems) => {
       return {
@@ -56,6 +45,24 @@ const ExpandableFilters = ({}) => {
       };
     });
   };
+  const dateHandler = (key, value) => {
+  
+    setDate((items) => {
+       return{...items,
+        [key]: value}
+
+    });
+
+  };
+ useEffect(()=>{
+  return date.startDate?console.log(date):'';},
+ [date])
+  const calenderHandler = () => {
+    setCalender(!calender);
+  };
+
+  
+
 
   return (
     <div className="expandable-container">
@@ -101,6 +108,7 @@ const ExpandableFilters = ({}) => {
         <Checkin
           setActiveSelect={setActiveSelect}
           activeSelect={activeSelect}
+        
           date={date}
           dateHandler={dateHandler}
           setDate={setDate}
@@ -125,7 +133,7 @@ const ExpandableFilters = ({}) => {
             backgroundColor: `${activeSelect === "guests" ? "white" : ""}`,
           }}
         >
-          <Guestopt selectedOpt={selectedOpt} activeSelect={activeSelect} />
+          <Guestopt selectedOpt={selectedOpt} activeSelect={activeSelect} FilterItemsHandler={FilterItemsHandler} />
         </div>
       </div>
       <button className="searchIcon">

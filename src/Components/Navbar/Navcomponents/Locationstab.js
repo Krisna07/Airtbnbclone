@@ -1,41 +1,41 @@
 import React from "react";
 import { useState } from "react";
 
+
 const Locationstab = ({ activeSelect, FilterItemsHandler }) => {
-  const [location, setLocation] = useState("Search destination");
+
   const mapItems = [
     {
       title: "I,m flexible",
-      imgsrc:
-        "https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg",
+      imgsrc:'./Images/WD.jpg'
+        ,
     },
     {
       title: "Europe",
-      imgsrc:
-        "https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg?im_w=320",
+      imgsrc:"/Images/EU.webp",
     },
     {
       title: "New Zealand",
       imgsrc:
-        "https://a0.muscache.com/im/pictures/72d843e8-4274-4ee7-a65b-23021c6e4a1c.jpg?im_w=320",
+        "/Images/NZ.webp",
     },
     {
-      title: "Southeast Asia",
+      title: "Asia Islands",
       imgsrc:
-        "https://a0.muscache.com/im/pictures/d77de9f5-5318-4571-88c7-e97d2355d20a.jpg?im_w=320",
+        "/Images/IL.webp",
     },
     {
       title: "United Kingdom",
       imgsrc:
-        "https://a0.muscache.com/im/pictures/dbb2b5ef-2efe-4099-81ac-c7b957f384ed.jpg?im_w=320",
+        "/Images/UK.webp",
     },
     {
       title: "United States",
       imgsrc:
-        "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
+        "/Images/US.webp",
     },
   ];
-  const [showItems, setShow] = useState();
+ 
   return (
     <div className="loactionOpts">
       <div className="opttitle">
@@ -49,7 +49,7 @@ const Locationstab = ({ activeSelect, FilterItemsHandler }) => {
             onClick={() => FilterItemsHandler("location", items.title)}
           >
             <div className="img-container">
-              <img src={items.imgsrc} alt="" />
+              <img src={items.imgsrc} alt={items.title} />
             </div>
             <span style={{ color: "black" }}>{items.title}</span>
           </div>

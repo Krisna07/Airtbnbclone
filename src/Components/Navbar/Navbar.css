@@ -252,7 +252,7 @@
   right: 0;
   border-radius: 5px;
 }
-.filterBtn::after {
+.filterBtn:first-child:after {
   content: "Filter";
 }
 .slideEdge {
