@@ -13,6 +13,7 @@ const ExpandableFilters = ({}) => {
   const expandablemenu = ["Stays", "Experiences", "Online Experiences"];
   const [calender, setCalender] = useState(false);
   const [showItems, setShow] = useState();
+
   const [date, setDate] = useState({
     startDate: null,
     endDate: null,
@@ -21,12 +22,11 @@ const ExpandableFilters = ({}) => {
 
   const [filteritems, setFilterItems] = useState({
     location: "Search destination",
-    checkin: 'startDate',
-    checkout: 'endDate',
+    checkin: null,
+    checkout: null,
     guests: "Add guests",
   });
 
- 
   const selectMenu = (e) => {
     setActivenav(e.target.innerHTML);
   };
@@ -46,23 +46,18 @@ const ExpandableFilters = ({}) => {
     });
   };
   const dateHandler = (key, value) => {
-  
     setDate((items) => {
-       return{...items,
-        [key]: value}
-
+      return { ...items, [key]: value };
     });
-
   };
- useEffect(()=>{
-  return date.startDate?console.log(date):'';},
- [date])
+
   const calenderHandler = () => {
     setCalender(!calender);
   };
 
-  
-
+  const showSearch = () => {
+    return setShow(!showItems);
+  };
 
   return (
     <div className="expandable-container">
@@ -75,8 +70,7 @@ const ExpandableFilters = ({}) => {
             style={{
               borderColor: `${menus === activenav ? "gray" : ""}`,
               color: `${menus === activenav ? "black" : ""}`,
-            }}
-          >
+            }}>
             {menus}
           </div>
         ))}
@@ -86,15 +80,13 @@ const ExpandableFilters = ({}) => {
           className="expandabletab"
           style={{
             backgroundColor: `${activeSelect == "location" ? "white" : ""}`,
-          }}
-        >
+          }}>
           <div
             className="expandabletabselect"
             onClick={() => {
               selectedOpt("location");
               setShow(!showItems);
-            }}
-          >
+            }}>
             Where
             <span>{filteritems.location}</span>
           </div>
@@ -108,13 +100,13 @@ const ExpandableFilters = ({}) => {
         <Checkin
           setActiveSelect={setActiveSelect}
           activeSelect={activeSelect}
-        
           date={date}
           dateHandler={dateHandler}
           setDate={setDate}
           calenderHandler={calenderHandler}
           calender={calender}
           selectedOpt={selectedOpt}
+          FilterItemsHandler={FilterItemsHandler}
         />
         <Checkout
           activeSelect={activeSelect}
@@ -126,14 +118,15 @@ const ExpandableFilters = ({}) => {
         />
         <div
           className="expandabletab guests"
-          onClick={() => {
-            selectedOpt("guests");
-          }}
           style={{
             backgroundColor: `${activeSelect === "guests" ? "white" : ""}`,
-          }}
-        >
-          <Guestopt selectedOpt={selectedOpt} activeSelect={activeSelect} FilterItemsHandler={FilterItemsHandler} />
+          }}>
+          <Guestopt
+            selectedOpt={selectedOpt}
+            activeSelect={activeSelect}
+            showSearch={showSearch}
+            FilterItemsHandler={FilterItemsHandler}
+          />
         </div>
       </div>
       <button className="searchIcon">

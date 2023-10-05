@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-// import { BiSearch } from "react-icons/bi";
+
 import { RiAddFill, RiSubtractFill } from "react-icons/ri";
 
-// import Increasingnumber from "./Increasingnumber";
-
-const Guestopt = ({ selectedOpt, activeSelect }) => {
-  // Declare an array of guests with their details
+const Guestopt = ({
+  selectedOpt,
+  activeSelect,
+  showSearch,
+  FilterItemsHandler,
+}) => {
   const [guests, setGuests] = useState([
     {
       type: "Adult",
@@ -29,7 +31,6 @@ const Guestopt = ({ selectedOpt, activeSelect }) => {
       value: 0,
     },
   ]);
-
   const [total, setTotal] = useState(0);
 
   const handleChange = (index, change) => {
@@ -43,11 +44,11 @@ const Guestopt = ({ selectedOpt, activeSelect }) => {
 
     const newTotal = updatedGuests.reduce(
       (total, guest) => total + guest.value,
-      0
+      0,
     );
     setTotal(newTotal);
   };
-
+  useEffect(() => FilterItemsHandler("guests", guests), [total]);
   return (
     <>
       <div
@@ -55,9 +56,13 @@ const Guestopt = ({ selectedOpt, activeSelect }) => {
           width: "100%",
           display: "flex",
           alignItems: "center",
-        }}
-      >
-        <div className="expandabletabselect">
+        }}>
+        <div
+          className="expandabletabselect"
+          onClick={() => {
+            selectedOpt("guests");
+            showSearch();
+          }}>
           Guests
           <span>
             {total} {"Guests"}
@@ -68,10 +73,11 @@ const Guestopt = ({ selectedOpt, activeSelect }) => {
         className="loactionOpts"
         style={{
           display: `${activeSelect === "guests" ? "flex" : "none"}`,
-        }}
-      >
+        }}>
         {guests.map((guest, index) => (
-          <div key={index} className="gueststabs">
+          <div
+            key={index}
+            className="gueststabs">
             <div className="guestType">
               <div className="guestType">{guest.type}</div>
               <div>{guest.des}</div>
@@ -79,15 +85,13 @@ const Guestopt = ({ selectedOpt, activeSelect }) => {
             <div className="guestCount">
               <button
                 onClick={() => handleChange(index, -1)}
-                className="chngBtn"
-              >
+                className="chngBtn">
                 <RiSubtractFill className="subsguest guestnum" />
               </button>
               {guest.value}
               <button
                 onClick={() => handleChange(index, 1)}
-                className="chngBtn"
-              >
+                className="chngBtn">
                 <RiAddFill className="addsguest guestnum " />
               </button>
             </div>

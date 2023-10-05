@@ -1,40 +1,42 @@
 import React from "react";
 import { useState } from "react";
 
+import WDImage from "../../../assets/WD.jpg"; 
+import EUImage from "../../../assets/EU.webp"; 
+import NZImage from "../../../assets/NZ.webp"; 
+import ILImage from "../../../assets/IL.webp"; 
+import UKImage from "../../../assets/UK.webp"; 
+import USImage from "../../../assets/USA.webp";
 
-const Locationstab = ({ activeSelect, FilterItemsHandler }) => {
-
+const Locationstab = ({ FilterItemsHandler }) => {
   const mapItems = [
     {
-      title: "I,m flexible",
-      imgsrc:'./Images/WD.jpg'
-        ,
+      title: "I'm flexible",
+      imgsrc: WDImage,
     },
     {
       title: "Europe",
-      imgsrc:"/Images/EU.webp",
+      imgsrc: EUImage,
     },
     {
       title: "New Zealand",
-      imgsrc:
-        "/Images/NZ.webp",
+      imgsrc: NZImage,
     },
     {
       title: "Asia Islands",
-      imgsrc:
-        "/Images/IL.webp",
+      imgsrc: ILImage,
     },
     {
       title: "United Kingdom",
-      imgsrc:
-        "/Images/UK.webp",
+      imgsrc: UKImage,
     },
     {
       title: "United States",
-      imgsrc:
-        "/Images/US.webp",
+      imgsrc: USImage,
     },
   ];
+
+
  
   return (
     <div className="loactionOpts">

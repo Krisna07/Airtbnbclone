@@ -15,10 +15,19 @@ const Checkin = ({
   calenderHandler,
   selectedOpt,
   setDate,
-
+  FilterItemsHandler,
 }) => {
   const [dateSelector, setDateSelector] = useState("Date");
   const dateSelectorsType = ["Date", "Month", "Flexible"];
+
+  useEffect(() => {
+    if (date.startDate) {
+      FilterItemsHandler("checkin", date.startDate.toLocaleDateString());
+      FilterItemsHandler("checkout", date.endDate.toLocaleDateString());
+    }
+  }, [date]);
+
+  console.log(date);
   return (
     <div
       className="expandabletab checkin"
@@ -26,23 +35,20 @@ const Checkin = ({
       onMouseLeave={leavehover}
       style={{
         backgroundColor: `${activeSelect === "checkin" ? "white" : ""}`,
-      }}
-    >
+      }}>
       <div
         style={{
           display: "flex",
           gap: "10px",
           justifyContent: "space-between",
           alignItems: "center",
-        }}
-      >
+        }}>
         <div
           onClick={(e) => {
             selectedOpt("checkin");
             calenderHandler();
           }}
-          className="expandabletabselect"
-        >
+          className="expandabletabselect">
           Check in
           <span>
             {date.startDate
@@ -52,7 +58,6 @@ const Checkin = ({
         </div>
         {date.startDate ? (
           <span className="removeStart remove-date">
-        
             <RiCloseFill
               color="red"
               onClick={() => {
@@ -70,8 +75,7 @@ const Checkin = ({
           className="loactionOpts"
           style={{
             display: "flex",
-          }}
-        >
+          }}>
           <div className="dateOpt">
             {dateSelectorsType.map((selector, x) => (
               <div
@@ -79,25 +83,33 @@ const Checkin = ({
                   selector === dateSelector ? `active` : ""
                 }`}
                 key={x}
-                onClick={() => setDateSelector(selector)}
-              >
+                onClick={() => setDateSelector(selector)}>
                 {selector}
               </div>
             ))}
           </div>
           <div className="twinCalender">
             {dateSelector === "Date" ? (
-              <Calender date={date} setDate={setDate} />
+              <Calender
+                date={date}
+                setDate={setDate}
+              />
             ) : (
               ""
             )}
             {dateSelector === "Month" ? (
-              <MonthSelector date={date} dateHandler={dateHandler} />
+              <MonthSelector
+                date={date}
+                dateHandler={dateHandler}
+              />
             ) : (
               ""
             )}
             {dateSelector === "Flexible" ? (
-              <FlexibleDateSelector date={date} setDate={setDate} />
+              <FlexibleDateSelector
+                date={date}
+                setDate={setDate}
+              />
             ) : (
               ""
             )}
