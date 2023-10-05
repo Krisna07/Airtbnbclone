@@ -8,16 +8,18 @@ const MonthSelector = ({ date, dateHandler }) => {
     date.startDate ? new Date(date.startDate) : new Date(),
   );
   const [endDate, setEndDate] = useState(
-    date.endDate ? new Date(date.endDate) : new Date(),
+    date.startDate ? new Date(date.startDate) : new Date(),
   );
 
   const displayDate = startDate.toDateString().split(" ");
 
   useEffect(() => {
-    const newEndDate = new Date(endDate);
-    newEndDate.setMonth(month - 1);
+    const newEndDate = new Date(startDate);
+    const currentMonth = newEndDate.getMonth();
+    newEndDate.setMonth(currentMonth + month + 1);
     setEndDate(newEndDate);
-    dateHandler("endDate", newEndDate);
+    dateHandler("endDate", endDate);
+    dateHandler("startDate", startDate);
   }, [month]);
 
   return (

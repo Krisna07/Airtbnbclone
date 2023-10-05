@@ -3,7 +3,7 @@ import { RiCalendarLine } from "react-icons/ri";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useEffect } from "react";
 
-const FlexibleDateSelector = () => {
+const FlexibleDateSelector = ({ date, setDate, dateHandler }) => {
   const flexibilitoption = ["Weekend", "Week", "Month"];
   const [select, setSelect] = useState();
 
@@ -29,7 +29,7 @@ const FlexibleDateSelector = () => {
   const startMonth = 0;
   const endMonth = 11;
   const [monthsArray, setMonthsArray] = useState(
-    requiredMonths(startMonth, endMonth)
+    requiredMonths(startMonth, endMonth),
   );
   const handleClick = (index) => {
     const updatedMonthsArray = [...monthsArray];
@@ -38,6 +38,7 @@ const FlexibleDateSelector = () => {
       selected: !updatedMonthsArray[index].selected,
     };
     setMonthsArray(updatedMonthsArray);
+    console.log(index);
   };
 
   const MonthcontainerWidth = useRef(0);
@@ -65,8 +66,7 @@ const FlexibleDateSelector = () => {
             <span
               key={date}
               className={`${date === select ? "activeFlexi" : ""}`}
-              onClick={() => setSelect(date)}
-            >
+              onClick={() => setSelect(date)}>
               {date}
             </span>
           ))}
@@ -75,12 +75,13 @@ const FlexibleDateSelector = () => {
       <div className="flexibilitySelector">
         <h2>When do you want to go?</h2>
         <div className="flexibilityMonth">
-          <div className="flexibleMonths" ref={visibleMonths}>
+          <div
+            className="flexibleMonths"
+            ref={visibleMonths}>
             <div
               className="flexibilityMonthContainer"
               style={{ left: `${-right}px` }}
-              ref={MonthcontainerWidth}
-            >
+              ref={MonthcontainerWidth}>
               {monthsArray.map((month) => (
                 <div
                   key={month.month}
@@ -89,9 +90,11 @@ const FlexibleDateSelector = () => {
                   }`}
                   onClick={() => {
                     handleClick(monthsArray.indexOf(month));
-                  }}
-                >
-                  <RiCalendarLine size={60} color={"gray"} />
+                  }}>
+                  <RiCalendarLine
+                    size={60}
+                    color={"gray"}
+                  />
                   <span style={{ fontWeight: "600" }}>{month.month}</span>
                   <span>{month.year}</span>
                 </div>

@@ -109,6 +109,7 @@ const Checkin = ({
               <FlexibleDateSelector
                 date={date}
                 setDate={setDate}
+                dateHandler={dateHandler}
               />
             ) : (
               ""
