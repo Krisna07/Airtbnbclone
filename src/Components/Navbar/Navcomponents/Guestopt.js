@@ -7,7 +7,7 @@ const Guestopt = ({
   selectedOpt,
   activeSelect,
   showSearch,
-  FilterItemsHandler,
+ 
 }) => {
   const [guests, setGuests] = useState([
     {
@@ -48,7 +48,7 @@ const Guestopt = ({
     );
     setTotal(newTotal);
   };
-  useEffect(() => FilterItemsHandler("guests", guests), [total]);
+  // useEffect(() => FilterItemsHandler("guests", guests), [total]);
   return (
     <>
       <div

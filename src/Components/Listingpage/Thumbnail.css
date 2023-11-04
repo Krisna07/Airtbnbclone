@@ -123,6 +123,11 @@
   height: 100%;
   object-fit: fill;
   object-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: white;
   background: linear-gradient(
     33deg,
     rgb(9, 70, 94) 0%,

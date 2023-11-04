@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {FaUser} from "react-icons/fa"
 
 const HosttImageContainer = ({ property }) => {
   const [image, isImage] = useState();
@@ -40,7 +41,9 @@ const HosttImageContainer = ({ property }) => {
             alt=""
           />
         ) : (
-          <div className="noImage"></div>
+          <div className="noImage">
+          <FaUser/>
+          </div>
         )}
       </div>
     </div>

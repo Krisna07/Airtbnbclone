@@ -17,6 +17,7 @@ function App() {
   };
   const updateProperty = (property) => {
     setProperty(property);
+    console.log(property)
   };
   const options = {
     location: "Australia",
